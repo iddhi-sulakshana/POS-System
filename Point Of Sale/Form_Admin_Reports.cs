@@ -62,12 +62,14 @@ namespace Point_Of_Sale
         private void Btn_Generate_Report_Click(object sender, EventArgs e)
         {
             Btn_Generate_Report.Text = "Generating";
+            this.Cursor = Cursors.WaitCursor;
             Btn_Generate_Report.Enabled = false;
             //Generate report and show window to save it to the local machine
             List<SaleStruct> TimedSales = Sales.Get_Timed_Sales(DateTime_Generate_Report_From.Value, DateTime_Generate_Report_To.Value);
             Class_Generate_Reports Generate = new Class_Generate_Reports();
             Generate.Generate_Reports(TimedSales);
             Btn_Generate_Report.Enabled = true;
+            this.Cursor = Cursors.Default;
             Btn_Generate_Report.Text = "Generate";
         }
 
