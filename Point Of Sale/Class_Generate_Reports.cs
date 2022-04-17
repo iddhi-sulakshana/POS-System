@@ -15,7 +15,7 @@ namespace Point_Of_Sale
         string ExcelPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale\\Reports");
         
         // generate report for Send sale list Report, Product report, Customer Report, User report and out of stock report
-        public async void Generate_Reports(List<SaleStruct> Sales)
+        public void Generate_Reports(List<SaleStruct> Sales)
         {
             // check if directory is not exist then create new
             if (!Directory.Exists(ExcelPath))
@@ -52,11 +52,26 @@ namespace Point_Of_Sale
             Worksheet worksheet2 = workbook.Worksheets.Add(worksheet);
             Worksheet worksheet3 = workbook.Worksheets.Add(worksheet);
 
-
-            worksheet = await Get_Customer_Sheet(worksheet);
-            worksheet1 = await Get_OutOfStock_Report_Sheet(worksheet1);
-            worksheet2 = await Get_Product_Report_Sheet(worksheet2);
-            worksheet3 = Get_Sale_Report_Sheet(worksheet3, Sales);
+            Task task1 = Task.Run(() =>
+            {
+                worksheet = Get_Customer_Sheet(worksheet);
+            });
+            Task task2 = Task.Run(() =>
+            {
+                worksheet1 = Get_OutOfStock_Report_Sheet(worksheet1);
+            });
+            Task task3 = Task.Run(() =>
+            {
+                worksheet2 = Get_Product_Report_Sheet(worksheet2);
+            });
+            Task task4 = Task.Run(() =>
+            {
+                worksheet3 = Get_Sale_Report_Sheet(worksheet3, Sales);
+            });
+            task1.Wait();
+            task2.Wait();
+            task3.Wait();
+            task4.Wait();
             //saving excel and close
             workbook.SaveAs(ExcelPath);
             workbook.Close();
@@ -157,7 +172,7 @@ namespace Point_Of_Sale
         }
         
         // Generate product report sheet data
-        private Task<Worksheet> Get_Product_Report_Sheet(Worksheet worksheet)
+        private Worksheet Get_Product_Report_Sheet(Worksheet worksheet)
         {
             worksheet.Name = "Product Report";
             // Insert Header
@@ -215,11 +230,11 @@ namespace Point_Of_Sale
                 Formatting.Rows.Font.Size = 16;
                 Formatting.Rows.Interior.Color = Color.Red;
             }
-            return Task.FromResult(worksheet);
+            return worksheet;
         }
         
         // Generate out of stock report sheet data
-        private Task<Worksheet> Get_OutOfStock_Report_Sheet(Worksheet worksheet)
+        private Worksheet Get_OutOfStock_Report_Sheet(Worksheet worksheet)
         {
             worksheet.Name = "Out Of Stock";
             // Insert Header
@@ -268,11 +283,11 @@ namespace Point_Of_Sale
                 Formatting.Rows.Font.Size = 16;
                 Formatting.Rows.Interior.Color = Color.Red;
             }
-            return Task.FromResult(worksheet);
+            return worksheet;
         }
         
         // Generate customer report sheet data
-        private Task<Worksheet> Get_Customer_Sheet(Worksheet worksheet)
+        private Worksheet Get_Customer_Sheet(Worksheet worksheet)
         {
             worksheet.Name = "Customers";
             // Insert Header
@@ -322,7 +337,7 @@ namespace Point_Of_Sale
                 Formatting.Rows.Font.Size = 16;
                 Formatting.Rows.Interior.Color = Color.Red;
             }
-            return Task.FromResult(worksheet);
+            return worksheet;
         }
     }
 }
