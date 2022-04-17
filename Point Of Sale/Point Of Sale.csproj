@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <PublishUrl>C:\Users\iddhi\Desktop\PointOfSaleSystem\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{22510F5C-A904-4A15-AEA9-4E4270AE723B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Point_Of_Sale</RootNamespace>
+    <AssemblyName>Point Of Sale</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>10968D15C0C10EB3184725583D9CB6A1CF7D9C9B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Point Of Sale_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Docking">
+      <HintPath>..\packages\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator">
+      <HintPath>..\packages\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon">
+      <HintPath>..\packages\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>..\packages\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Workspace">
+      <HintPath>..\packages\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XanderUI">
+      <HintPath>..\packages\XanderUI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class_Customer.cs" />
+    <Compile Include="Class_Database.cs" />
+    <Compile Include="Class_Generate_Reports.cs" />
+    <Compile Include="Class_Print_Sale.cs" />
+    <Compile Include="Class_Products.cs" />
+    <Compile Include="Class_Structures.cs" />
+    <Compile Include="Form_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin.Designer.cs">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Company.Designer.cs">
+      <DependentUpon>Form_Admin_Company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Customers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Customers.Designer.cs">
+      <DependentUpon>Form_Admin_Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Products.Designer.cs">
+      <DependentUpon>Form_Admin_Products.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Reports.Designer.cs">
+      <DependentUpon>Form_Admin_Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Users.Designer.cs">
+      <DependentUpon>Form_Admin_Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_NumberPad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_NumberPad.Designer.cs">
+      <DependentUpon>Form_NumberPad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Register.Designer.cs">
+      <DependentUpon>Form_Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Select_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Select_Customer.Designer.cs">
+      <DependentUpon>Form_Select_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Splash_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Splash_Screen.Designer.cs">
+      <DependentUpon>Form_Splash_Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_User_Input.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_User_Input.Designer.cs">
+      <DependentUpon>Form_User_Input.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Preview_Sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Preview_Sale.Designer.cs">
+      <DependentUpon>Form_Preview_Sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Welcome.Designer.cs">
+      <DependentUpon>Form_Welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Class_Sale.cs" />
+    <Compile Include="Class_User.cs" />
+    <EmbeddedResource Include="Form_Admin.resx">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Company.resx">
+      <DependentUpon>Form_Admin_Company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Customers.resx">
+      <DependentUpon>Form_Admin_Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Products.resx">
+      <DependentUpon>Form_Admin_Products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Reports.resx">
+      <DependentUpon>Form_Admin_Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Users.resx">
+      <DependentUpon>Form_Admin_Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_NumberPad.resx">
+      <DependentUpon>Form_NumberPad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Register.resx">
+      <DependentUpon>Form_Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Select_Customer.resx">
+      <DependentUpon>Form_Select_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Splash_Screen.resx">
+      <DependentUpon>Form_Splash_Screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_User_Input.resx">
+      <DependentUpon>Form_User_Input.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Preview_Sale.resx">
+      <DependentUpon>Form_Preview_Sale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Welcome.resx">
+      <DependentUpon>Form_Welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Point Of Sale_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cash1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FM Bindumathi.TTF" />
+    <None Include="Resources\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
+    <Content Include="DatabasePOSDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DatabasePOSDatabase_log.ldf">
+      <DependentUpon>DatabasePOSDatabase.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\AppIcon.ico" />
+    <None Include="Resources\company-logo.png" />
+    <None Include="Resources\show-eye.png" />
+    <None Include="Resources\hide-eye.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\company.png" />
+    <None Include="Resources\product.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\reports.png" />
+    <None Include="Resources\headerclose.png" />
+    <None Include="Resources\headermax.png" />
+    <None Include="Resources\headermin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
