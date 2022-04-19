@@ -18,9 +18,6 @@ namespace Point_Of_Sale
 
         readonly Class_Products Product = new Class_Products();
 
-        // used for get user inputs
-        readonly Form_User_Input GetInput = new Form_User_Input();
-
         // store previously clicked panel and clicked id
         Panel PreviouslyClicked = new Panel();
         int Selected = -1;
@@ -143,51 +140,21 @@ namespace Point_Of_Sale
         /// values for name, price and quantity
         private void Btn_Product_Edit_Click(object sender, EventArgs e)
         {
-            string Name;
-            double Price;
-            int Unit;
-            // Get Name
-            GetInput.Set_Values("Edit Name For Product ", PreviouslyClicked.Controls[0].Text);
+            // used for get user inputs
+            Form_User_Input GetInput = new Form_User_Input();
+
+            GetInput.Set_Values("Edit Name", "Edit Price", "Edit Quantity", PreviouslyClicked.Controls[0].Text, double.Parse(PreviouslyClicked.Controls[2].Text, NumberStyles.Currency, Lanka).ToString("0.00"), PreviouslyClicked.Controls[1].Text);
             GetInput.ShowDialog();
             if (!GetInput.Cancel)
             {
-                Name = GetInput.Get_Value();
-                // Get Price
-                GetInput.Set_Values("Edit Price For " + Name, double.Parse(PreviouslyClicked.Controls[2].Text, NumberStyles.Currency, Lanka).ToString("0.00"));
-                GetInput.ShowDialog();
-                if (!GetInput.Cancel)
+                try
                 {
-                    try
-                    {
-                        Price = double.Parse(GetInput.Get_Value());
-                        // Get Quantity
-                        GetInput.Set_Values("Edit Qunatity For " + Name, PreviouslyClicked.Controls[1].Text);
-                        GetInput.ShowDialog();
-                        if (!GetInput.Cancel)
-                        {
-                            try
-                            {
-                                Unit = int.Parse(GetInput.Get_Value());
-                                if (Name != "")
-                                {
-                                    Product.Update_Product(Selected, Name, Price, Unit);
-                                    Update_Product_List();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Name is Required.", "Incorredct Field Data");
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Unit Should be number", ex.Message);
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Price Should be number or decimal", ex.Message);
-                    }
+                    Product.Update_Product(Selected, GetInput.Get_Value1(), double.Parse(GetInput.Get_Value2()), int.Parse(GetInput.Get_Value3()));
+                    Update_Product_List();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -196,49 +163,21 @@ namespace Point_Of_Sale
         /// name, price and quantity
         private void Btn_Products_Add_Click(object sender, EventArgs e)
         {
-            string Name;
-            double Price;
-            int Unit;
-            // Get Name
-            GetInput.Set_Values("Enter Name For Product", "");
+            // used for get user inputs
+            Form_User_Input GetInput = new Form_User_Input();
+
+            GetInput.Set_Values("Name", "Price", "Quantity");
             GetInput.ShowDialog();
             if (!GetInput.Cancel)
             {
-                Name = GetInput.Get_Value();
-                GetInput.Set_Values("Enter Price For " + Name, "");
-                GetInput.ShowDialog();
-                if (!GetInput.Cancel)
+                try
                 {
-                    try
-                    {
-                        Price = double.Parse(GetInput.Get_Value());
-                        GetInput.Set_Values("Enter Quantity for " + Name, "");
-                        GetInput.ShowDialog();
-                        if (!GetInput.Cancel)
-                        {
-                            try
-                            {
-                                Unit = int.Parse(GetInput.Get_Value());
-                                if (Name != "")
-                                {
-                                    Product.Insert_Product(Name, Price, Unit);
-                                    Update_Product_List();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Name Required.", "Incorredct Field Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Unit Should be number",ex.Message);
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Price Should be number or decimal", ex.Message);
-                    }
+                    Product.Insert_Product(GetInput.Get_Value1(), double.Parse(GetInput.Get_Value2()), int.Parse(GetInput.Get_Value3()));
+                    Update_Product_List();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

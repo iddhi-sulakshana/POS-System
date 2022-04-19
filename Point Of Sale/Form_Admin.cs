@@ -13,7 +13,7 @@ namespace Point_Of_Sale
         }
         
         // used for store previously clicked button in the menu
-        Button PreviousClicked = new Button();
+        private Button PreviousClicked = new Button();
         
         /// clicked on the menu item cheange previous clicked button to default and clicked
         /// button to the clciked color and assign clicked to previously clicked and check

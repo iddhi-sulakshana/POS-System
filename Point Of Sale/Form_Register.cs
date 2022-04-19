@@ -19,7 +19,7 @@ namespace Point_Of_Sale
         private Panel SelectedProduct = null;
 
         // Used for Calculations and other data needs for store in the database
-        SaleStruct SaleDetails = new SaleStruct() 
+        private SaleStruct SaleDetails = new SaleStruct() 
         { 
             Id = -1, 
             Subtotal = 0, 
@@ -31,7 +31,7 @@ namespace Point_Of_Sale
         private double Total = 0;
 
         // store all the non zero product for searching purpose
-        List<ProductStruct> SearchedProducts = null;
+        private List<ProductStruct> SearchedProducts = null;
 
         public Form_Register()
         {
@@ -561,7 +561,7 @@ namespace Point_Of_Sale
 
         // --start-- History Section --start--
         // stores previously clicked panel for sale
-        Panel Previous_Clicked_Sale = null;
+        private Panel Previous_Clicked_Sale = null;
 
         // History Panel Show and Hide
         private void History_Panel_Show()

@@ -5,14 +5,12 @@ using System.Windows.Forms;
 
 namespace Point_Of_Sale
 {
-    internal class Class_Products
+    internal class Class_Products : Class_Database
     {
-        readonly Class_Database Database = new Class_Database();
-        
         // insert product to the database by using name, price and unit as parameters
         public void Insert_Product(string Name, double Price, int Unit)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"INSERT INTO Product(Name, Price, Unit) VALUES('{Name}', '{Price}', {Unit})"; 
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -33,7 +31,7 @@ namespace Point_Of_Sale
         // update product in the database by using id, name, price and unit as parameters
         public void Update_Product(int Id, string Name, double Price, int Unit)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"UPDATE Product SET Name = '{Name}', Price = '{decimal.Parse(Price.ToString())}', Unit = {Unit} WHERE Id = {Id}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -54,7 +52,7 @@ namespace Point_Of_Sale
         // delete product from the database by using id as parameter
         public void Delete_Product(int Id)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"DELETE FROM Product WHERE Id = {Id}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -77,7 +75,7 @@ namespace Point_Of_Sale
         public List<ProductStruct> Retrieve_Products(bool NonZero)
         {
             List<ProductStruct> Product_List = new List<ProductStruct>();
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql;
             if (NonZero)
             {
@@ -119,7 +117,7 @@ namespace Point_Of_Sale
         public ProductStruct Get_Product(int Id)
         {
             ProductStruct Item = new ProductStruct();
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"SELECT * FROM Product WHERE Id = {Id}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -146,7 +144,7 @@ namespace Point_Of_Sale
         // get quantity of a product by using id as parameter and return quantity as integer
         public int Get_Quantity(int Id)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"SELECT Unit FROM Product WHERE Id = {Id}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             int quantity = 0;
@@ -173,7 +171,7 @@ namespace Point_Of_Sale
         public List<ProductStruct> Get_Empty_Products()
         {
             List<ProductStruct> Product_List = new List<ProductStruct>();
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"SELECT * FROM Product WHERE Unit = 0";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try

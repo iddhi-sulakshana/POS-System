@@ -14,9 +14,6 @@ namespace Point_Of_Sale
 
         readonly Class_Customer Customer = new Class_Customer();
 
-        // used for get user input
-        readonly Form_User_Input GetInput = new Form_User_Input();
-
         // store previously clicked panel and selected id
         Panel PreviouslyClicked = new Panel();
         int Selected = -1;
@@ -143,37 +140,20 @@ namespace Point_Of_Sale
         /// value for name, address and phone and reload the customer list
         private void Btn_Customer_Edit_Click(object sender, EventArgs e)
         {
-            string Name;
-            string Address;
-            string Phone;
-            // Get Name
-            GetInput.Set_Values("Enter Name For Customer ", PreviouslyClicked.Controls[0].Text);
+            // used for get user input
+            Form_User_Input GetInput = new Form_User_Input();
+            GetInput.Set_Values("Edit Name", "Edit Address", "Edit Phone (10 digits)", PreviouslyClicked.Controls[0].Text, PreviouslyClicked.Controls[1].Text, PreviouslyClicked.Controls[2].Text);
             GetInput.ShowDialog();
             if (!GetInput.Cancel)
             {
-                Name = GetInput.Get_Value();
-                // Get Address
-                GetInput.Set_Values("Enter Address For " + Name, PreviouslyClicked.Controls[1].Text);
-                GetInput.ShowDialog();
-                if (!GetInput.Cancel)
+                if(GetInput.Get_Value3().Trim().Length == 10)
                 {
-                    Address = GetInput.Get_Value();
-                    // Get Phone
-                    GetInput.Set_Values("Enter Phone Number For " + Name + " (10 Digits)", PreviouslyClicked.Controls[2].Text);
-                    GetInput.ShowDialog();
-                    if (!GetInput.Cancel)
-                    {
-                        Phone = GetInput.Get_Value();
-                        if (Name != "" && Address != "" && Phone != "" && Phone.Length == 10)
-                        {
-                            Customer.Update_Customer(Selected, Name, Address, Phone);
-                            Update_Customer_List();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Name, Address and Phone Required. Phone Should be 10 Digits", "Incorredct Field Data");
-                        }
-                    }
+                    Customer.Update_Customer(Selected, GetInput.Get_Value1(), GetInput.Get_Value2(), GetInput.Get_Value3());
+                    Update_Customer_List();
+                }
+                else
+                {
+                    MessageBox.Show("Phone No Should be 10 digits");
                 }
             }
         }
@@ -182,35 +162,20 @@ namespace Point_Of_Sale
         /// name, address and phone and reload the customer list
         private void Btn_Customer_Add_Click(object sender, EventArgs e)
         {
-            string Name;
-            string Address;
-            string Phone;
-            // Get UserName
-            GetInput.Set_Values("Enter Name For Customer", "");
+            // used for get user input
+            Form_User_Input GetInput = new Form_User_Input();
+            GetInput.Set_Values("Name", "Address", "Phone (10 digits)");
             GetInput.ShowDialog();
             if (!GetInput.Cancel)
             {
-                Name = GetInput.Get_Value();
-                GetInput.Set_Values("Enter Address For " + Name, "");
-                GetInput.ShowDialog();
-                if (!GetInput.Cancel)
+                if (GetInput.Get_Value3().Trim().Length == 10)
                 {
-                    Address = GetInput.Get_Value();
-                    GetInput.Set_Values("Enter Phone Number For " + Name + " (10 Digits)", "");
-                    GetInput.ShowDialog();
-                    if (!GetInput.Cancel)
-                    {
-                        Phone = GetInput.Get_Value();
-                        if (Name != "" && Address != "" && Phone != "" && Phone.Length == 10)
-                        {
-                            Customer.Insert_Customer(Name, Address, Phone);
-                            Update_Customer_List();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Name, Address and Phone Required. Phone Should be 10 Digits", "Incorredct Field Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
+                    Customer.Insert_Customer(GetInput.Get_Value1(), GetInput.Get_Value2(), GetInput.Get_Value3());
+                    Update_Customer_List();
+                }
+                else
+                {
+                    MessageBox.Show("Phone No Should be 10 digits");
                 }
             }
         }

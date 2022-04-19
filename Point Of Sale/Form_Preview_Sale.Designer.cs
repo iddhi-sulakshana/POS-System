@@ -103,7 +103,7 @@
             this.Panel_Parent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Parent.Location = new System.Drawing.Point(10, 5);
             this.Panel_Parent.Name = "Panel_Parent";
-            this.Panel_Parent.Size = new System.Drawing.Size(564, 751);
+            this.Panel_Parent.Size = new System.Drawing.Size(564, 690);
             this.Panel_Parent.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -127,18 +127,17 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(564, 751);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(564, 690);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // Lbl_Customer
@@ -146,9 +145,9 @@
             this.Lbl_Customer.AutoSize = true;
             this.Lbl_Customer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Lbl_Customer.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Customer.Location = new System.Drawing.Point(3, 205);
+            this.Lbl_Customer.Location = new System.Drawing.Point(3, 185);
             this.Lbl_Customer.Name = "Lbl_Customer";
-            this.Lbl_Customer.Size = new System.Drawing.Size(276, 35);
+            this.Lbl_Customer.Size = new System.Drawing.Size(276, 25);
             this.Lbl_Customer.TabIndex = 29;
             this.Lbl_Customer.Text = "Bill To :";
             this.Lbl_Customer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,7 +160,7 @@
             this.Btn_Print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Print.Font = new System.Drawing.Font("Arial Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Print.ForeColor = System.Drawing.Color.White;
-            this.Btn_Print.Location = new System.Drawing.Point(3, 704);
+            this.Btn_Print.Location = new System.Drawing.Point(3, 643);
             this.Btn_Print.Name = "Btn_Print";
             this.Btn_Print.Size = new System.Drawing.Size(276, 44);
             this.Btn_Print.TabIndex = 27;
@@ -177,7 +176,7 @@
             this.Btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Cancel.Font = new System.Drawing.Font("Arial Black", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Cancel.ForeColor = System.Drawing.Color.White;
-            this.Btn_Cancel.Location = new System.Drawing.Point(285, 704);
+            this.Btn_Cancel.Location = new System.Drawing.Point(285, 643);
             this.Btn_Cancel.Name = "Btn_Cancel";
             this.Btn_Cancel.Size = new System.Drawing.Size(276, 44);
             this.Btn_Cancel.TabIndex = 26;
@@ -190,10 +189,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.panel2, 2);
             this.panel2.Controls.Add(this.Panel_Main_Items);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 275);
+            this.panel2.Location = new System.Drawing.Point(0, 235);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(564, 351);
+            this.panel2.Size = new System.Drawing.Size(564, 330);
             this.panel2.TabIndex = 2;
             // 
             // Panel_Main_Items
@@ -205,7 +204,7 @@
             this.Panel_Main_Items.Location = new System.Drawing.Point(0, 0);
             this.Panel_Main_Items.Name = "Panel_Main_Items";
             this.Panel_Main_Items.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.Panel_Main_Items.Size = new System.Drawing.Size(564, 351);
+            this.Panel_Main_Items.Size = new System.Drawing.Size(564, 330);
             this.Panel_Main_Items.TabIndex = 19;
             // 
             // Panel_Item_Loader
@@ -215,7 +214,7 @@
             this.Panel_Item_Loader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Item_Loader.Location = new System.Drawing.Point(0, 50);
             this.Panel_Item_Loader.Name = "Panel_Item_Loader";
-            this.Panel_Item_Loader.Size = new System.Drawing.Size(564, 291);
+            this.Panel_Item_Loader.Size = new System.Drawing.Size(564, 270);
             this.Panel_Item_Loader.TabIndex = 1;
             // 
             // Table_Header
@@ -292,7 +291,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.Lbl_Address, 2);
             this.Lbl_Address.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Lbl_Address.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Address.Location = new System.Drawing.Point(3, 180);
+            this.Lbl_Address.Location = new System.Drawing.Point(3, 160);
             this.Lbl_Address.Name = "Lbl_Address";
             this.Lbl_Address.Size = new System.Drawing.Size(558, 25);
             this.Lbl_Address.TabIndex = 6;
@@ -307,7 +306,7 @@
             this.Picture_CompanyLogo.Image = global::Point_Of_Sale.Properties.Resources.company_logo;
             this.Picture_CompanyLogo.Location = new System.Drawing.Point(3, 3);
             this.Picture_CompanyLogo.Name = "Picture_CompanyLogo";
-            this.Picture_CompanyLogo.Size = new System.Drawing.Size(558, 84);
+            this.Picture_CompanyLogo.Size = new System.Drawing.Size(558, 69);
             this.Picture_CompanyLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Picture_CompanyLogo.TabIndex = 0;
             this.Picture_CompanyLogo.TabStop = false;
@@ -318,9 +317,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.Lbl_CompanyName, 2);
             this.Lbl_CompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Lbl_CompanyName.Font = new System.Drawing.Font("Arial Black", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_CompanyName.Location = new System.Drawing.Point(3, 90);
+            this.Lbl_CompanyName.Location = new System.Drawing.Point(3, 75);
             this.Lbl_CompanyName.Name = "Lbl_CompanyName";
-            this.Lbl_CompanyName.Size = new System.Drawing.Size(558, 40);
+            this.Lbl_CompanyName.Size = new System.Drawing.Size(558, 35);
             this.Lbl_CompanyName.TabIndex = 2;
             this.Lbl_CompanyName.Text = "Company Name";
             this.Lbl_CompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -331,7 +330,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.Lbl_Email, 2);
             this.Lbl_Email.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Lbl_Email.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Email.Location = new System.Drawing.Point(3, 130);
+            this.Lbl_Email.Location = new System.Drawing.Point(3, 110);
             this.Lbl_Email.Name = "Lbl_Email";
             this.Lbl_Email.Size = new System.Drawing.Size(558, 25);
             this.Lbl_Email.TabIndex = 3;
@@ -344,7 +343,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.Lbl_Phone, 2);
             this.Lbl_Phone.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Lbl_Phone.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Phone.Location = new System.Drawing.Point(3, 155);
+            this.Lbl_Phone.Location = new System.Drawing.Point(3, 135);
             this.Lbl_Phone.Name = "Lbl_Phone";
             this.Lbl_Phone.Size = new System.Drawing.Size(558, 25);
             this.Lbl_Phone.TabIndex = 5;
@@ -364,7 +363,7 @@
             this.tableLayoutPanel4.Controls.Add(this.Lbl_Subtotal, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.Lbl_Total_Value, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 629);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 568);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -450,9 +449,9 @@
             this.Lbl_SaleId.AutoSize = true;
             this.Lbl_SaleId.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Lbl_SaleId.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_SaleId.Location = new System.Drawing.Point(3, 240);
+            this.Lbl_SaleId.Location = new System.Drawing.Point(3, 210);
             this.Lbl_SaleId.Name = "Lbl_SaleId";
-            this.Lbl_SaleId.Size = new System.Drawing.Size(276, 35);
+            this.Lbl_SaleId.Size = new System.Drawing.Size(276, 25);
             this.Lbl_SaleId.TabIndex = 8;
             this.Lbl_SaleId.Text = "Sale : #123";
             this.Lbl_SaleId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -462,9 +461,9 @@
             this.Lbl_Date.AutoSize = true;
             this.Lbl_Date.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Lbl_Date.Font = new System.Drawing.Font("Segoe UI Variable Display", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Date.Location = new System.Drawing.Point(285, 240);
+            this.Lbl_Date.Location = new System.Drawing.Point(285, 210);
             this.Lbl_Date.Name = "Lbl_Date";
-            this.Lbl_Date.Size = new System.Drawing.Size(276, 35);
+            this.Lbl_Date.Size = new System.Drawing.Size(276, 25);
             this.Lbl_Date.TabIndex = 8;
             this.Lbl_Date.Text = "Date : 2022 / 4 / 13";
             this.Lbl_Date.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -474,7 +473,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(584, 761);
+            this.ClientSize = new System.Drawing.Size(584, 700);
             this.Controls.Add(this.Panel_Parent);
             this.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12.5F);
             this.ForeColor = System.Drawing.Color.White;

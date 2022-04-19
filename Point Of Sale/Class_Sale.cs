@@ -5,15 +5,13 @@ using System.Windows.Forms;
 
 namespace Point_Of_Sale
 {
-    internal class Class_Sale
+    internal class Class_Sale : Class_Database
     {
-        readonly Class_Database Database = new Class_Database();
-        
         // get all the sales from database and return them as sale list
         public List<SaleStruct> Retrieve_Sales()
         {
             List<SaleStruct> Sales_List = new List<SaleStruct>();
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = "SELECT * FROM Sale ORDER BY Id DESC";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -48,7 +46,7 @@ namespace Point_Of_Sale
         // get specified sale from database by using saleid as parameter and return sale
         public SaleStruct Load_Sale_Details(int SaleId)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             SaleStruct Sale = new SaleStruct();
             string sql = $"SELECT Sale.Subtotal, Sale.Discount, Sale.CustomerId, Sale.Payment, Product.Id, Product.Name, Product.Price, SaleProduct.Quantity, Sale.DateTime FROM Sale LEFT JOIN SaleProduct ON Sale.Id = SaleProduct.SalesId LEFT JOIN Product ON SaleProduct.ProductId = Product.Id WHERE Sale.Id = {SaleId}";
             SqlCommand Command = new SqlCommand(sql, Conn);
@@ -95,7 +93,7 @@ namespace Point_Of_Sale
         // save new sale to database by using sale structure as parameter and return inserted id
         public int Save_New_Sale(SaleStruct SaleDetails)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"INSERT INTO Sale(Subtotal, Discount, CustomerId, Payment) OUTPUT INSERTED.Id VALUES('{SaleDetails.Subtotal}', '{SaleDetails.Discount}', {SaleDetails.Customer}, '{SaleDetails.Payment}')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -126,7 +124,7 @@ namespace Point_Of_Sale
         // update existing sale by using sale structure as parameter
         public void Update_Existing_Sale(SaleStruct SaleDetails)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"UPDATE Sale SET Subtotal = '{SaleDetails.Subtotal}', Discount = '{SaleDetails.Discount}', CustomerId = {SaleDetails.Customer}, Payment = '{SaleDetails.Payment}' WHERE Id = {SaleDetails.Id}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -185,7 +183,7 @@ namespace Point_Of_Sale
         // delete sale from the database by using id as parameter
         public void Delete_Sale(int SaleId)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"DELETE FROM SaleProduct WHERE SalesId = {SaleId}; DELETE FROM Sale WHERE Id = {SaleId}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -206,7 +204,7 @@ namespace Point_Of_Sale
         // update stock of the products that has saled by using sale details as parameter
         public void Update_Stock(SaleStruct SaleDetails)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             try
             {
                 Conn.Open();
@@ -235,7 +233,7 @@ namespace Point_Of_Sale
         // get today sale count from the database and return count as integer
         public int Get_Today_Sale_Count()
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"SELECT COUNT(*) FROM Sale WHERE CAST(DateTime AS DATE) = CAST(GETDATE() AS DATE) AND NOT(Payment = 'Not Paid')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             int Count = 0;
@@ -261,7 +259,7 @@ namespace Point_Of_Sale
         // get today sale amount from the database and return amount as the double
         public double Get_Today_Sale_Amount()
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"SELECT Subtotal FROM Sale WHERE CAST(DateTime AS DATE) = CAST(GETDATE() AS DATE) AND NOT(Payment = 'Not Paid')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             double amount = 0;
@@ -289,7 +287,7 @@ namespace Point_Of_Sale
         // get specified date sale count by using date as parameter and return sale count as integer
         public int Get_Date_Sale_Count(DateTime Date)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"SELECT COUNT(*) FROM Sale WHERE CAST(DateTime AS DATE) = CAST('{Date}' AS DATE) AND NOT(Payment = 'Not Paid')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             int Count = 0;
@@ -315,7 +313,7 @@ namespace Point_Of_Sale
         // get specified month sale count by using year and month as parameter and return sale count as integer
         public int Get_Monthly_Sale_Count(int Year, int Month)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"SELECT COUNT(*) FROM Sale WHERE MONTH(DateTime) = {Month} AND YEAR(DateTime) = {Year} AND NOT(Payment = 'Not Paid')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             int Count = 0;
@@ -342,7 +340,7 @@ namespace Point_Of_Sale
         public List<SaleStruct> Get_Timed_Sales(DateTime From, DateTime To)
         {
             List<SaleStruct> Sales_List = new List<SaleStruct>();
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"SELECT * FROM Sale WHERE CAST(DateTime AS DATE) BETWEEN CAST('{From}' AS DATE) AND CAST('{To}' AS DATE)";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try

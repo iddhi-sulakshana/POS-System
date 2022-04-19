@@ -8,18 +8,15 @@ using iTextSharp.text.pdf;
 
 namespace Point_Of_Sale
 {
-    internal class Class_Print_Sale
+    internal class Class_Print_Sale : Form_Preview_Sale
     {
-        // path for the app data folder located inside mydocument (User/MyDocument/PointOfSale)
-        readonly string UserPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale");
-        
         // Custom Fonts for editing pdf
-        readonly Font ArialBI = FontFactory.GetFont("Arial", 25, Font.BOLDITALIC);
-        readonly Font ArialB = FontFactory.GetFont("Arial", 15, Font.BOLD);
-        readonly Font Calibri = FontFactory.GetFont("Calibri Light", 15);
+        readonly private Font ArialBI = FontFactory.GetFont("Arial", 25, iTextSharp.text.Font.BOLDITALIC);
+        readonly private Font ArialB = FontFactory.GetFont("Arial", 15, iTextSharp.text.Font.BOLD);
+        readonly private Font Calibri = FontFactory.GetFont("Calibri Light", 15);
 
         // create printable pdf and display it to the user
-        public void Print_Sale(SaleStruct SaleDetails)
+        public void Print_Sale()
         {
             // sinhala font for add currency sign in the report
             BaseFont Bindumathi = BaseFont.CreateFont(Path.Combine(Directory.GetCurrentDirectory(), "Resources\\FM Bindumathi.TTF"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true, Properties.Resources.FM_Bindumathi, null);
@@ -100,18 +97,22 @@ namespace Point_Of_Sale
             Table.WidthPercentage = 100;
             Table.AddCell(new PdfPCell(Get_Paragraph("Total ", ArialB, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
 
-            ParagraphTxt = new Paragraph();
-            ParagraphTxt.Add(new Chunk("re ", Sinhala));
-            ParagraphTxt.Add(new Chunk(Math.Round((SaleDetails.Subtotal / (100 - SaleDetails.Discount)) * 100, 2).ToString("0,0.00"), Calibri));
-            
+            ParagraphTxt = new Paragraph
+            {
+                new Chunk("re ", Sinhala),
+                new Chunk(Math.Round((SaleDetails.Subtotal / (100 - SaleDetails.Discount)) * 100, 2).ToString("0,0.00"), Calibri)
+            };
+
             Table.AddCell(new PdfPCell(ParagraphTxt) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
             Table.AddCell(new PdfPCell(Get_Paragraph("Discount ", ArialB, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
             Table.AddCell(new PdfPCell(Get_Paragraph((SaleDetails.Discount / 100).ToString("P02"), Calibri, "right", -1, -1)) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
             Table.AddCell(new PdfPCell(Get_Paragraph("Subtotal ", ArialB, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
 
-            ParagraphTxt = new Paragraph();
-            ParagraphTxt.Add(new Chunk("re ", Sinhala));
-            ParagraphTxt.Add(new Chunk(SaleDetails.Subtotal.ToString("0,0.00"), Calibri));
+            ParagraphTxt = new Paragraph
+            {
+                new Chunk("re ", Sinhala),
+                new Chunk(SaleDetails.Subtotal.ToString("0,0.00"), Calibri)
+            };
 
             Table.AddCell(new PdfPCell(ParagraphTxt) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
 

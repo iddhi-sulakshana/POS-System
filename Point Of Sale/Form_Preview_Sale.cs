@@ -9,6 +9,9 @@ namespace Point_Of_Sale
 {
     public partial class Form_Preview_Sale : KryptonForm
     {
+        // path for the app data folder located inside mydocument (User/MyDocument/PointOfSale)
+        protected string UserPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale");
+
         // used for change currency for rupees
         readonly CultureInfo Lanka = new CultureInfo("si-LK");
 
@@ -20,7 +23,7 @@ namespace Point_Of_Sale
         readonly Class_Sale Sales = new Class_Sale();
 
         // store sale details
-        SaleStruct SaleDetails = new SaleStruct();
+        protected SaleStruct SaleDetails = new SaleStruct();
 
         // give sale id from the other classes
         public int SalesId;
@@ -45,7 +48,6 @@ namespace Point_Of_Sale
         {
             try
             {
-                string UserPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale");
                 string[] Lines = File.ReadAllLines(Path.Combine(UserPath, "Company.txt"));
                 Lbl_CompanyName.Text = Lines[0];
                 Lbl_Email.Text = Lines[2];
@@ -168,7 +170,7 @@ namespace Point_Of_Sale
         {
             Btn_Print.Enabled = false;
             Class_Print_Sale Print = new Class_Print_Sale();
-            Print.Print_Sale(SaleDetails);
+            Print.Print_Sale();
             Btn_Print.Enabled = true;
             Clear_Preview();
             this.Close();

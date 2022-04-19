@@ -5,14 +5,12 @@ using System.Windows.Forms;
 
 namespace Point_Of_Sale
 {
-    internal class Class_User
+    internal class Class_User : Class_Database
     {
-        readonly Class_Database Database = new Class_Database();
-        
         // check if username is already exist as name recived as parameter and retunr boolean value
         public bool Is_UserName_Exist(string UserName)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             bool exist = false;
             try
             {
@@ -39,7 +37,7 @@ namespace Point_Of_Sale
         // validate userdetails by using username and password as parameter and return boolean value
         public bool Is_Valid_Credintials(string UserName, string Password)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             bool valid = false;
             try
             {
@@ -66,7 +64,7 @@ namespace Point_Of_Sale
         // insert user into the database by using username and password as parameters
         public void Insert_User(string UserName, string Password)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"INSERT INTO UserDetails(UserName, UserPwd) VALUES('{UserName}', '{Password}')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -87,7 +85,7 @@ namespace Point_Of_Sale
         // update user in the database by usign id username and password as parameters
         public void Update_User(int Id, string UserName, string Password)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"UPDATE UserDetails SET UserName = '{UserName}', UserPwd = '{Password}' WHERE ID = {Id}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -109,7 +107,7 @@ namespace Point_Of_Sale
         public List<UserStruct> Retrieve_Users()
         {
             List<UserStruct> Users_List = new List<UserStruct>();
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = "SELECT * FROM UserDetails WHERE NOT(UserName = 'admin')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -141,7 +139,7 @@ namespace Point_Of_Sale
         // delete user from the database by using id as parameter
         public void Delete_User(int Id)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"DELETE FROM UserDetails WHERE ID = {Id}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -162,7 +160,7 @@ namespace Point_Of_Sale
         // update admin password in the database by using password as parameter
         public void Update_Admin(string Password)
         {
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = $"UPDATE UserDetails SET UserPwd = '{Password}' WHERE UserName = 'admin'";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
@@ -184,7 +182,7 @@ namespace Point_Of_Sale
         public string Retrieve_Admin_Password()
         {
             string Password=null;
-            SqlConnection Conn = Database.GetConn();
+            SqlConnection Conn = GetConn();
             string sql = "SELECT UserPwd FROM UserDetails WHERE UserName = 'admin'";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try

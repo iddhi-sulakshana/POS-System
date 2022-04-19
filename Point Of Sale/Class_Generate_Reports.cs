@@ -12,7 +12,7 @@ namespace Point_Of_Sale
     internal class Class_Generate_Reports
     {
         // path for the excel file (Users/MyDocument/PointOfSale/Reports)
-        string ExcelPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale\\Reports");
+        private string ExcelPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale\\Reports");
         
         // generate report for Send sale list Report, Product report, Customer Report, User report and out of stock report
         public void Generate_Reports(List<SaleStruct> Sales)
@@ -48,9 +48,6 @@ namespace Point_Of_Sale
             Workbook workbook = ExcelApp.Workbooks.Add();
 
             Worksheet worksheet = workbook.ActiveSheet;
-            Worksheet worksheet1 = workbook.Worksheets.Add(worksheet);
-            Worksheet worksheet2 = workbook.Worksheets.Add(worksheet);
-            Worksheet worksheet3 = workbook.Worksheets.Add(worksheet);
 
             Task task1 = Task.Run(() =>
             {
@@ -58,14 +55,17 @@ namespace Point_Of_Sale
             });
             Task task2 = Task.Run(() =>
             {
+                Worksheet worksheet1 = workbook.Worksheets.Add(worksheet);
                 worksheet1 = Get_OutOfStock_Report_Sheet(worksheet1);
             });
             Task task3 = Task.Run(() =>
             {
+                Worksheet worksheet2 = workbook.Worksheets.Add(worksheet);
                 worksheet2 = Get_Product_Report_Sheet(worksheet2);
             });
             Task task4 = Task.Run(() =>
             {
+                Worksheet worksheet3 = workbook.Worksheets.Add(worksheet);
                 worksheet3 = Get_Sale_Report_Sheet(worksheet3, Sales);
             });
             task1.Wait();

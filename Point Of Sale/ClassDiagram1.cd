@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Point_Of_Sale.Class_Customer" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAACAAAAACAAIA=</HashCode>
+      <FileName>Class_Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Class_Database" Collapsed="true">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAQ=</HashCode>
+      <FileName>Class_Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Class_Generate_Reports" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAgAAAAAAAAQAAgAAAAAAAAAAAAAAAAggCA=</HashCode>
+      <FileName>Class_Generate_Reports.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Class_Print_Sale" Collapsed="true">
+    <Position X="8.75" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAABAAAAACAAAAAAAAEAACACAAAAA=</HashCode>
+      <FileName>Class_Print_Sale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Class_Products" Collapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAACAAAKCAAKAAA=</HashCode>
+      <FileName>Class_Products.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Class_Sale" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>YgAAAAAAAAAAAgAAAgQAAAAAAAAAAABBAAQAAAIEAAA=</HashCode>
+      <FileName>Class_Sale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Class_User" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAQAAIEgAAAAAAAAAABAQAAAAAAAAAACAAA=</HashCode>
+      <FileName>Class_User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Admin" Collapsed="true">
+    <Position X="11" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAECAECAQAAAAACCAAQACgIAAAAAAoAgBAAABAAA=</HashCode>
+      <FileName>Form_Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Admin_Company" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEUBQBAAACABAEAAEBCABDCGAJBAABUAAAAAAQACAQA=</HashCode>
+      <FileName>Form_Admin_Company.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Admin_Customers" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAAAECDBQAAiEAAGAAAACAUCAAAIiAAAAASAAAKI=</HashCode>
+      <FileName>Form_Admin_Customers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Admin_Products" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AkACAAAAICQEAQAAAAGAABBCAYIAEAIAQAAAEQACAE4=</HashCode>
+      <FileName>Form_Admin_Products.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Admin_Reports" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>/wIQACAkBDCYAFEIAECABBTCEwAhAAAQgAAAQQGgUDg=</HashCode>
+      <FileName>Form_Admin_Reports.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Admin_Users" Collapsed="true">
+    <Position X="3" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAABgAEwACAEAAAEEAGAAJICgQAAAACAIAJAAACCASI=</HashCode>
+      <FileName>Form_Admin_Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_NumberPad" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ARBAAAAAACKQAAIAIAGIAAACEAEEIAABiAQCAUAAACI=</HashCode>
+      <FileName>Form_NumberPad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Preview_Sale" Collapsed="true">
+    <Position X="8.75" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EMAAABEAQCgAREAQQJCAJAAHChALAAgAgEAAQRAGQCg=</HashCode>
+      <FileName>Form_Preview_Sale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Register" Collapsed="true">
+    <Position X="14" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>YogECMEpwDwFFDiALMGABCQCVOAJSgIAktADEFJnA40=</HashCode>
+      <FileName>Form_Register.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Select_Customer" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EABAAAACACAAAACAAADABAACAiAAAAAggBAAAQAAAIE=</HashCode>
+      <FileName>Form_Select_Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Splash_Screen" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACBAIAAAAQSAAAADAAAAAACAgAAAAAAEEAA=</HashCode>
+      <FileName>Form_Splash_Screen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_User_Input" Collapsed="true">
+    <Position X="4.5" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAEAQDAggAAAAICGAABCAAAAABAsAAAAAIAAACA=</HashCode>
+      <FileName>Form_User_Input.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Form_Welcome" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEBAABAACiAAAABAACCAIACAAABAQCAoAAAAUAABAg=</HashCode>
+      <FileName>Form_Welcome.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Program" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Properties.Resources" Collapsed="true">
+    <Position X="2.75" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AKQAgECBQgAEACIAAQAhEQgBIQACAAAABaAAACICA4Q=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point_Of_Sale.Properties.Settings" Collapsed="true">
+    <Position X="10.5" Y="6.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAACAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Point_Of_Sale.UserStruct" Collapsed="true">
+    <Position X="3" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Class_Structures.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Point_Of_Sale.CustomerStruct" Collapsed="true">
+    <Position X="4.25" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAIAAAAAA=</HashCode>
+      <FileName>Class_Structures.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Point_Of_Sale.ProductStruct" Collapsed="true">
+    <Position X="6" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAIAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class_Structures.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Point_Of_Sale.SaleStruct" Collapsed="true">
+    <Position X="7.75" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAEAAAAAIAAAAAAAAAAAAABAgAAAAAAAAQ=</HashCode>
+      <FileName>Class_Structures.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

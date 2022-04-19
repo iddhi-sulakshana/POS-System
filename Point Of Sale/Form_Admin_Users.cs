@@ -14,12 +14,9 @@ namespace Point_Of_Sale
 
         readonly Class_User User = new Class_User();
 
-        // used for get user inputs
-        readonly Form_User_Input GetInput = new Form_User_Input();
-
         // store previously clicked panel and clicked id
-        Panel PreviouslyClicked = new Panel();
-        int Selected = -1;
+        private Panel PreviouslyClicked = new Panel();
+        private int Selected = -1;
 
         // load users to the user product loader
         private void Form_Admin_Users_Load(object sender, EventArgs e)
@@ -171,29 +168,20 @@ namespace Point_Of_Sale
         /// values for name and password
         private void Btn_User_Edit_Click(object sender, EventArgs e)
         {
-            string Name;
-            string Password;
-            // Get UserName
-            GetInput.Set_Values("Enter Name For User ", PreviouslyClicked.Controls[0].Text);
+            // used for get user inputs
+            Form_User_Input GetInput = new Form_User_Input();
+            GetInput.Set_Values("Username", "Password", PreviouslyClicked.Controls[0].Text, PreviouslyClicked.Controls[1].Text);
             GetInput.ShowDialog();
             if (!GetInput.Cancel)
             {
-                Name = GetInput.Get_Value();
-                // Get Password
-                GetInput.Set_Values("Enter Password For User ", PreviouslyClicked.Controls[1].Text);
-                GetInput.ShowDialog();
-                if (!GetInput.Cancel)
+                if (User.Is_UserName_Exist(GetInput.Get_Value1()))
                 {
-                    Password = GetInput.Get_Value();
-                    if(Name != "" && Password != "")
-                    {
-                        User.Update_User(Selected, Name, Password);
-                        Update_User_List();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Name and Password Required", "Empty fields");
-                    }
+                    MessageBox.Show("Username already exist");
+                }
+                else
+                {
+                    User.Update_User(Selected, GetInput.Get_Value1(), GetInput.Get_Value2());
+                    Update_User_List();
                 }
             }
         }
@@ -202,35 +190,21 @@ namespace Point_Of_Sale
         /// name and password
         private void Btn_User_Add_Click(object sender, EventArgs e)
         {
-            string Name;
-            string Password;
-            // Get UserName
-            GetInput.Set_Values("Enter Name For User", "");
+
+            // used for get user inputs
+            Form_User_Input GetInput = new Form_User_Input();
+            GetInput.Set_Values("Username", "Password");
             GetInput.ShowDialog();
             if (!GetInput.Cancel)
             {
-                Name = GetInput.Get_Value();
-                GetInput.Set_Values("Enter Password For " + Name, "");
-                GetInput.ShowDialog();
-                if (!GetInput.Cancel)
+                if (User.Is_UserName_Exist(GetInput.Get_Value1()))
                 {
-                    Password = GetInput.Get_Value();
-                    if(Name != "" && Password != "")
-                    {
-                        if(User.Is_UserName_Exist(Name))
-                        {
-                            MessageBox.Show("UserName Already Exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            User.Insert_User(Name, Password);
-                            Update_User_List();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Username and Password Required", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    MessageBox.Show("Username already exist");
+                }
+                else
+                {
+                    User.Insert_User(GetInput.Get_Value1(), GetInput.Get_Value2());
+                    Update_User_List();
                 }
             }
         }

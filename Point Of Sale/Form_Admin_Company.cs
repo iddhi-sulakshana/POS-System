@@ -13,7 +13,7 @@ namespace Point_Of_Sale
         }
         
         // path for the app data in the documents (User/MyDocument/PointOfSale)
-        readonly string UserPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale");
+        readonly private string UserPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale");
         
         // Show password when user click on show password button
         private void Btn_Password_Show_MouseDown(object sender, MouseEventArgs e)
@@ -29,7 +29,7 @@ namespace Point_Of_Sale
             Txt_Admin_Password.PasswordChar = '*';
         }
 
-        readonly Class_User User = new Class_User();
+        readonly private Class_User User = new Class_User();
 
         // update company details when click on the update button
         private void Btn_Company_Update_Click(object sender, EventArgs e)

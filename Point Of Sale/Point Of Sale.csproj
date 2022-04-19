@@ -116,7 +116,9 @@
     <Compile Include="Class_Customer.cs" />
     <Compile Include="Class_Database.cs" />
     <Compile Include="Class_Generate_Reports.cs" />
-    <Compile Include="Class_Print_Sale.cs" />
+    <Compile Include="Class_Print_Sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Class_Products.cs" />
     <Compile Include="Class_Structures.cs" />
     <Compile Include="Form_Admin.cs">
@@ -250,6 +252,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Point Of Sale_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
