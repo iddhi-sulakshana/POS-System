@@ -26,6 +26,8 @@ namespace Point_Of_Sale
                     if (Txt_Password.Text == User.Retrieve_Admin_Password())
                     {
                         Lbl_Error.Visible = false;
+                        Txt_UName.Text = "";
+                        Txt_Password.Text = "";
                         this.Hide();
                         new Form_Admin().ShowDialog();
                         this.Show();
@@ -38,6 +40,8 @@ namespace Point_Of_Sale
                 else if (User.Is_Valid_Credintials(Txt_UName.Text, Txt_Password.Text))
                 {
                     Lbl_Error.Visible = false;
+                    Txt_UName.Text = "";
+                    Txt_Password.Text = "";
                     this.Hide();
                     new Form_Register().ShowDialog();
                     this.Show();

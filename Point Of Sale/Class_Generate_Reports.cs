@@ -141,7 +141,7 @@ namespace Point_Of_Sale
                     worksheet.Cells[i, 2].Value = Sale.Customer;
                     worksheet.Cells[i, 3].Value = Sale.Date;
                     worksheet.Cells[i, 4].Value = Sale.Payment;
-                    worksheet.Cells[i, 5].Value = (Sale.Subtotal / (100 - Sale.Discount) * 100);
+                    worksheet.Cells[i, 5].Value = Sale.Total;
                     worksheet.Cells[i, 6].Value = Sale.Discount/100;
                     worksheet.Cells[i, 7].Formula = $"={worksheet.Cells[i, 5].Address}-({worksheet.Cells[i, 5].Address}*{worksheet.Cells[i, 6].Address})";
                     i++;

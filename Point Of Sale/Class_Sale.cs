@@ -23,7 +23,7 @@ namespace Point_Of_Sale
                     SaleStruct Item = new SaleStruct
                     {
                         Id = DataReader.GetInt32(0),
-                        Subtotal = double.Parse(DataReader.GetDecimal(1).ToString()),
+                        Total = double.Parse(DataReader.GetDecimal(1).ToString()),
                         Discount = double.Parse(DataReader.GetDecimal(2).ToString()),
                         Customer = DataReader.GetInt32(3),
                         Payment = DataReader.GetString(4)
@@ -48,7 +48,7 @@ namespace Point_Of_Sale
         {
             SqlConnection Conn = GetConn();
             SaleStruct Sale = new SaleStruct();
-            string sql = $"SELECT Sale.Subtotal, Sale.Discount, Sale.CustomerId, Sale.Payment, Product.Id, Product.Name, Product.Price, SaleProduct.Quantity, Sale.DateTime FROM Sale LEFT JOIN SaleProduct ON Sale.Id = SaleProduct.SalesId LEFT JOIN Product ON SaleProduct.ProductId = Product.Id WHERE Sale.Id = {SaleId}";
+            string sql = $"SELECT Sale.Total, Sale.Discount, Sale.CustomerId, Sale.Payment, Product.Id, Product.Name, Product.Price, SaleProduct.Quantity, Sale.DateTime FROM Sale LEFT JOIN SaleProduct ON Sale.Id = SaleProduct.SalesId LEFT JOIN Product ON SaleProduct.ProductId = Product.Id WHERE Sale.Id = {SaleId}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
             {
@@ -61,7 +61,7 @@ namespace Point_Of_Sale
                 {
                     if (first)
                     {
-                        Sale.Subtotal = double.Parse(DataReader.GetDecimal(0).ToString());
+                        Sale.Total = double.Parse(DataReader.GetDecimal(0).ToString());
                         Sale.Discount = double.Parse(DataReader.GetDecimal(1).ToString());
                         Sale.Customer = DataReader.GetInt32(2);
                         Sale.Payment = DataReader.GetString(3);
@@ -94,7 +94,7 @@ namespace Point_Of_Sale
         public int Save_New_Sale(SaleStruct SaleDetails)
         {
             SqlConnection Conn = GetConn();
-            string sql = $"INSERT INTO Sale(Subtotal, Discount, CustomerId, Payment) OUTPUT INSERTED.Id VALUES('{SaleDetails.Subtotal}', '{SaleDetails.Discount}', {SaleDetails.Customer}, '{SaleDetails.Payment}')";
+            string sql = $"INSERT INTO Sale(Total, Discount, CustomerId, Payment) OUTPUT INSERTED.Id VALUES('{SaleDetails.Total}', '{SaleDetails.Discount}', {SaleDetails.Customer}, '{SaleDetails.Payment}')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
             {
@@ -125,7 +125,7 @@ namespace Point_Of_Sale
         public void Update_Existing_Sale(SaleStruct SaleDetails)
         {
             SqlConnection Conn = GetConn();
-            string sql = $"UPDATE Sale SET Subtotal = '{SaleDetails.Subtotal}', Discount = '{SaleDetails.Discount}', CustomerId = {SaleDetails.Customer}, Payment = '{SaleDetails.Payment}' WHERE Id = {SaleDetails.Id}";
+            string sql = $"UPDATE Sale SET Total = '{SaleDetails.Total}', Discount = '{SaleDetails.Discount}', CustomerId = {SaleDetails.Customer}, Payment = '{SaleDetails.Payment}' WHERE Id = {SaleDetails.Id}";
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
             {
@@ -260,7 +260,7 @@ namespace Point_Of_Sale
         public double Get_Today_Sale_Amount()
         {
             SqlConnection Conn = GetConn();
-            string sql = $"SELECT Subtotal FROM Sale WHERE CAST(DateTime AS DATE) = CAST(GETDATE() AS DATE) AND NOT(Payment = 'Not Paid')";
+            string sql = $"SELECT Total, Discount FROM Sale WHERE CAST(DateTime AS DATE) = CAST(GETDATE() AS DATE) AND NOT(Payment = 'Not Paid')";
             SqlCommand Command = new SqlCommand(sql, Conn);
             double amount = 0;
             try
@@ -269,7 +269,7 @@ namespace Point_Of_Sale
                 SqlDataReader DataReader = Command.ExecuteReader();
                 while (DataReader.Read())
                 {
-                    amount += double.Parse(DataReader.GetDecimal(0).ToString());
+                    amount += double.Parse(DataReader.GetDecimal(0).ToString()) - (double.Parse(DataReader.GetDecimal(0).ToString()) * double.Parse(DataReader.GetDecimal(1).ToString()) / 100);
                 }
                 DataReader.Close();
             }
@@ -352,7 +352,7 @@ namespace Point_Of_Sale
                     SaleStruct Item = new SaleStruct
                     {
                         Id = DataReader.GetInt32(0),
-                        Subtotal = double.Parse(DataReader.GetDecimal(1).ToString()),
+                        Total = double.Parse(DataReader.GetDecimal(1).ToString()),
                         Discount = double.Parse(DataReader.GetDecimal(2).ToString()),
                         Customer = DataReader.GetInt32(3),
                         Payment = DataReader.GetString(4),

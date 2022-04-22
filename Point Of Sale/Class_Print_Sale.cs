@@ -16,8 +16,9 @@ namespace Point_Of_Sale
         readonly private Font Calibri = FontFactory.GetFont("Calibri Light", 15);
 
         // create printable pdf and display it to the user
-        public void Print_Sale()
+        public void Print_Sale(SaleStruct SaleReceived)
         {
+            SaleDetails = SaleReceived;
             // sinhala font for add currency sign in the report
             BaseFont Bindumathi = BaseFont.CreateFont(Path.Combine(Directory.GetCurrentDirectory(), "Resources\\FM Bindumathi.TTF"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true, Properties.Resources.FM_Bindumathi, null);
             Font Sinhala = new Font(Bindumathi, 15);
@@ -100,7 +101,7 @@ namespace Point_Of_Sale
             ParagraphTxt = new Paragraph
             {
                 new Chunk("re ", Sinhala),
-                new Chunk(Math.Round((SaleDetails.Subtotal / (100 - SaleDetails.Discount)) * 100, 2).ToString("0,0.00"), Calibri)
+                new Chunk(Math.Round(SaleDetails.Total, 2).ToString("0,0.00"), Calibri)
             };
 
             Table.AddCell(new PdfPCell(ParagraphTxt) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
@@ -111,7 +112,7 @@ namespace Point_Of_Sale
             ParagraphTxt = new Paragraph
             {
                 new Chunk("re ", Sinhala),
-                new Chunk(SaleDetails.Subtotal.ToString("0,0.00"), Calibri)
+                new Chunk((SaleDetails.Total - (SaleDetails.Total * SaleDetails.Discount / 100)).ToString("0,0.00"), Calibri)
             };
 
             Table.AddCell(new PdfPCell(ParagraphTxt) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;

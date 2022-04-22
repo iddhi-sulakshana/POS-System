@@ -34,7 +34,7 @@ namespace Point_Of_Sale
     public struct SaleStruct
     {
         public int Id;
-        public double Subtotal;
+        public double Total;
         public double Discount;
         public int Customer;
         public string Payment;

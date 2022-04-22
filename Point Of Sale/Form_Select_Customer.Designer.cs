@@ -34,8 +34,6 @@
             this.Panel_Customer_Main = new System.Windows.Forms.Panel();
             this.Panel_Top_SearchBar = new System.Windows.Forms.Panel();
             this.Lbl_Cancel = new System.Windows.Forms.Label();
-            this.Txt_Customer_Name = new System.Windows.Forms.TextBox();
-            this.Lbl_Search = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.Panel_Top_SearchBar.SuspendLayout();
             this.SuspendLayout();
@@ -87,8 +85,6 @@
             // Panel_Top_SearchBar
             // 
             this.Panel_Top_SearchBar.Controls.Add(this.Lbl_Cancel);
-            this.Panel_Top_SearchBar.Controls.Add(this.Txt_Customer_Name);
-            this.Panel_Top_SearchBar.Controls.Add(this.Lbl_Search);
             this.Panel_Top_SearchBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_Top_SearchBar.Location = new System.Drawing.Point(0, 0);
             this.Panel_Top_SearchBar.Name = "Panel_Top_SearchBar";
@@ -106,31 +102,6 @@
             this.Lbl_Cancel.Text = "X";
             this.Lbl_Cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Lbl_Cancel.Click += new System.EventHandler(this.Lbl_Cancel_Click);
-            // 
-            // Txt_Customer_Name
-            // 
-            this.Txt_Customer_Name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.Txt_Customer_Name.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Txt_Customer_Name.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F);
-            this.Txt_Customer_Name.ForeColor = System.Drawing.Color.White;
-            this.Txt_Customer_Name.Location = new System.Drawing.Point(265, 6);
-            this.Txt_Customer_Name.Name = "Txt_Customer_Name";
-            this.Txt_Customer_Name.Size = new System.Drawing.Size(454, 28);
-            this.Txt_Customer_Name.TabIndex = 12;
-            this.Txt_Customer_Name.TabStop = false;
-            // 
-            // Lbl_Search
-            // 
-            this.Lbl_Search.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Lbl_Search.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F);
-            this.Lbl_Search.Image = global::Point_Of_Sale.Properties.Resources.search;
-            this.Lbl_Search.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Lbl_Search.Location = new System.Drawing.Point(0, 0);
-            this.Lbl_Search.Name = "Lbl_Search";
-            this.Lbl_Search.Size = new System.Drawing.Size(226, 40);
-            this.Lbl_Search.TabIndex = 0;
-            this.Lbl_Search.Text = "Search product by name";
-            this.Lbl_Search.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Form_Select_Customer
             // 
@@ -167,8 +138,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel Panel_Top_SearchBar;
-        private System.Windows.Forms.TextBox Txt_Customer_Name;
-        private System.Windows.Forms.Label Lbl_Search;
         private System.Windows.Forms.Panel Panel_Customer_Main;
         private System.Windows.Forms.Label Lbl_Cancel;
     }

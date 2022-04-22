@@ -35,6 +35,8 @@ namespace Point_Of_Sale
             Update_14Days_Report();
             Update_Yearly_Report();
             Update_Today_Report();
+            DateTime date = DateTime.Now;
+            Lbl_Generated_Time.Text = $"Report Generated at {date.Year}.{date.Month}.{date.Day} {date.Hour}:{date.Minute}:{date.Second}{date.ToString("tt")}";
         }
 
         // validate date user inserted
@@ -87,8 +89,7 @@ namespace Point_Of_Sale
                 CurrentDate = CurrentDate.Add(ADay);
             }
             Graph_14Days_Report.Items[14] = Graph_14Days_Report.Items[13];
-            Panel_14Days_Report.Controls.Remove(Graph_14Days_Report);
-            Panel_14Days_Report.Controls.Add(Graph_14Days_Report);
+            Graph_14Days_Report.Refresh();
         }
 
         // update yearly report graph by usign getting sale count from the database
@@ -98,8 +99,7 @@ namespace Point_Of_Sale
             for(int i = 0; i < 12; i++)
             {
                 Graph_Yearly_Report.Items[i] = Sales.Get_Monthly_Sale_Count(int.Parse(DateTime.Now.Year.ToString()), i+1);
-                Panel_Yearly_Report.Controls.Remove(Graph_Yearly_Report);
-                Panel_Yearly_Report.Controls.Add(Graph_Yearly_Report);
+                Graph_Yearly_Report.Refresh();
             }
         }
 

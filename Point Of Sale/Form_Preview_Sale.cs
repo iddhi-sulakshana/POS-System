@@ -71,9 +71,9 @@ namespace Point_Of_Sale
             Lbl_Customer.Text = $"Bill To : {Customers.Get_Customer_Name(SaleDetails.Customer)}";
             Lbl_SaleId.Text = $"Sale : #{SaleDetails.Id}";
             Lbl_Date.Text = $"Date : {SaleDetails.Date.ToString("MM/dd/yyyy hh:mm:ss tt")}";
-            Lbl_Total_Value.Text = string.Format(Lanka, "{0:c}", ((SaleDetails.Subtotal / (100 - SaleDetails.Discount)) * 100));
+            Lbl_Total_Value.Text = string.Format(Lanka, "{0:c}", SaleDetails.Total);
             Lbl_Discount_Value.Text = (SaleDetails.Discount / 100).ToString("P02");
-            Lbl_Subtotal_Value.Text = string.Format(Lanka, "{0:c}", SaleDetails.Subtotal);
+            Lbl_Subtotal_Value.Text = string.Format(Lanka, "{0:c}", SaleDetails.Total - (SaleDetails.Total * SaleDetails.Discount / 100));
             foreach(ProductStruct Product in SaleDetails.Products)
             {
                 Insert_Preview_Item(Product.Id, Product.Name, Product.Unit, Product.Price);
@@ -146,7 +146,7 @@ namespace Point_Of_Sale
         }
         
         // clear all the details from the form
-        private void Clear_Preview()
+        protected void Clear_Preview()
         {
             SalesId = -1;
             Panel_Item_Loader.Controls.Clear();
@@ -170,9 +170,8 @@ namespace Point_Of_Sale
         {
             Btn_Print.Enabled = false;
             Class_Print_Sale Print = new Class_Print_Sale();
-            Print.Print_Sale();
+            Print.Print_Sale(SaleDetails);
             Btn_Print.Enabled = true;
-            Clear_Preview();
             this.Close();
         }
     }

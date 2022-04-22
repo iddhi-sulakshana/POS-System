@@ -22,13 +22,12 @@ namespace Point_Of_Sale
         private SaleStruct SaleDetails = new SaleStruct() 
         { 
             Id = -1, 
-            Subtotal = 0, 
+            Total = 0, 
             Discount = 0, 
             Payment = null, 
             Customer = -1, 
             Products = new List<ProductStruct>() 
         };
-        private double Total = 0;
 
         // store all the non zero product for searching purpose
         private List<ProductStruct> SearchedProducts = null;
@@ -148,14 +147,14 @@ namespace Point_Of_Sale
         // Update Total for sale
         private void Update_Total()
         {
-            Total = 0;
+            SaleDetails.Total = 0;
             foreach (Panel Item in Panel_Product_Sale_Main.Controls)
             {
-                Total += double.Parse(Item.Controls[0].Controls[3].Text);
+                SaleDetails.Total += double.Parse(Item.Controls[0].Controls[3].Text);
             }
-            Txt_Total.Text = string.Format(Lanka, "{0:c}", Total);
+            Txt_Total.Text = string.Format(Lanka, "{0:c}", SaleDetails.Total);
             Txt_Discount.Text = (SaleDetails.Discount / 100).ToString("P02");
-            Txt_Subtotal.Text = string.Format(Lanka, "{0:c}", Total - ((Total * SaleDetails.Discount) / 100));
+            Txt_Subtotal.Text = string.Format(Lanka, "{0:c}", SaleDetails.Total - ((SaleDetails.Total * SaleDetails.Discount) / 100));
             /// To convert back to normal double value
             /// MessageBox.Show(double.Parse(Txt_Total.Text, NumberStyles.Currency, Lanka).ToString("0.00"));
         }
@@ -168,7 +167,7 @@ namespace Point_Of_Sale
             /// them to use later
             if (SelectedProduct != null)
             {
-                SelectedProduct.BackColor = Color.FromArgb(41, 41, 41);
+                SelectedProduct.BackColor = Color.FromArgb(37,37,37);
             }
             Label Clicked = sender as Label;
             SelectedProduct = Clicked.Parent as Panel;
@@ -195,10 +194,9 @@ namespace Point_Of_Sale
             {
                 Panel_Product_Sale_Main.Controls.Clear();
                 SelectedProduct = null;
-                Total = 0;
                 SaleDetails = new SaleStruct();
                 SaleDetails.Id = -1;
-                SaleDetails.Subtotal = 0;
+                SaleDetails.Total = 0;
                 SaleDetails.Discount = 0;
                 SaleDetails.Payment = null;
                 SaleDetails.Customer = -1;
@@ -337,7 +335,7 @@ namespace Point_Of_Sale
             {
                 SaleDetails.Payment = "Not Paid";
             }
-            SaleDetails.Subtotal = double.Parse(Txt_Subtotal.Text, NumberStyles.Currency, Lanka);
+            SaleDetails.Total = double.Parse(Txt_Total.Text, NumberStyles.Currency, Lanka);
             
             //check if sale is new or existing sale
             if(SaleDetails.Id == -1)
@@ -608,7 +606,6 @@ namespace Point_Of_Sale
             {
                 Clear_Sale();
                 SaleDetails = Sales.Load_Sale_Details(int.Parse(Clicked.Name.Split('_')[3]));
-                Total = (SaleDetails.Subtotal / (100 - SaleDetails.Discount)) * 100;
                 foreach(ProductStruct Item in SaleDetails.Products)
                 {
                     Insert_Sale_Item(Item.Id, Item.Name, Item.Unit, Item.Price);
@@ -664,7 +661,7 @@ namespace Point_Of_Sale
             {
                 foreach (SaleStruct Sale in SalesList)
                 {
-                    Insert_History_Item(Sale.Id, Sale.Subtotal, Sale.Payment);
+                    Insert_History_Item(Sale.Id, Sale.Total, Sale.Payment);
                 }
             }
             else
