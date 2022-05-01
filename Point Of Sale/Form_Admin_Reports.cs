@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Globalization;
+using System.Windows.Forms;
 namespace Point_Of_Sale
 {
     public partial class Form_Admin_Reports : Form
     {
         // used for change currency for rupees
-        readonly CultureInfo Lanka = new CultureInfo("si-LK");
+        private readonly CultureInfo Lanka = new CultureInfo("si-LK");
 
         public Form_Admin_Reports()
         {
             InitializeComponent();
         }
 
-        readonly Class_Sale Sales = new Class_Sale();
+        private readonly Class_Sale Sales = new Class_Sale();
 
         // load report details
         private void Form_Admin_Reports_Load(object sender, EventArgs e)
@@ -64,13 +64,13 @@ namespace Point_Of_Sale
         private void Update_14Days_Report()
         {
             DateTime CurrentDate = DateTime.Now;
-            List<Label> Labels = new List<Label> { Lbl_Date1, Lbl_Date2, Lbl_Date3, Lbl_Date4, Lbl_Date5, Lbl_Date6, Lbl_Date7, Lbl_Date8, Lbl_Date9, Lbl_Date10, Lbl_Date11, Lbl_Date12, Lbl_Date13, Lbl_Date14};
+            List<Label> Labels = new List<Label> { Lbl_Date1, Lbl_Date2, Lbl_Date3, Lbl_Date4, Lbl_Date5, Lbl_Date6, Lbl_Date7, Lbl_Date8, Lbl_Date9, Lbl_Date10, Lbl_Date11, Lbl_Date12, Lbl_Date13, Lbl_Date14 };
             TimeSpan ADay = new TimeSpan(1, 0, 0, 0);
             CurrentDate = CurrentDate.Subtract(new TimeSpan(13, 0, 0, 0));
-            for(int i = 0; i < 14; i++)
+            for (int i = 0; i < 14; i++)
             {
                 Labels[i].Text = CurrentDate.ToString("dd");
-                Graph_14Days_Report.Items[i] = Sales.Get_Date_Sale_Count(CurrentDate)+1;
+                Graph_14Days_Report.Items[i] = Sales.Get_Date_Sale_Count(CurrentDate) + 1;
                 CurrentDate = CurrentDate.Add(ADay);
             }
             Graph_14Days_Report.Items[14] = Graph_14Days_Report.Items[13];
@@ -80,9 +80,9 @@ namespace Point_Of_Sale
         // update yearly report graph by usign getting sale count from the database
         private void Update_Yearly_Report()
         {
-            for(int i = 0; i < 12; i++)
+            for (int i = 0; i < 12; i++)
             {
-                Graph_Yearly_Report.Items[i] = Sales.Get_Monthly_Sale_Count(int.Parse(DateTime.Now.Year.ToString()), i+1);
+                Graph_Yearly_Report.Items[i] = Sales.Get_Monthly_Sale_Count(int.Parse(DateTime.Now.Year.ToString()), i + 1);
                 Graph_Yearly_Report.Refresh();
             }
         }

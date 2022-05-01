@@ -1,32 +1,31 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace Point_Of_Sale
 {
     public partial class Form_Register : KryptonForm
     {
         // used for change currency for rupees
-        readonly CultureInfo Lanka = new CultureInfo("si-LK");
-
-        readonly Class_Products ProductClass = new Class_Products();
-        readonly Class_Sale Sales = new Class_Sale();
+        private readonly CultureInfo Lanka = new CultureInfo("si-LK");
+        private readonly Class_Products ProductClass = new Class_Products();
+        private readonly Class_Sale Sales = new Class_Sale();
 
         // Used for Store User Selected Panels
         private Panel SelectedProduct = null;
 
         // Used for Calculations and other data needs for store in the database
-        private SaleStruct SaleDetails = new SaleStruct() 
-        { 
-            Id = -1, 
-            Total = 0, 
-            Discount = 0, 
-            Payment = null, 
-            Customer = -1, 
-            Products = new List<ProductStruct>() 
+        private SaleStruct SaleDetails = new SaleStruct()
+        {
+            Id = -1,
+            Total = 0,
+            Discount = 0,
+            Payment = null,
+            Customer = -1,
+            Products = new List<ProductStruct>()
         };
 
         // store all the non zero product for searching purpose
@@ -167,7 +166,7 @@ namespace Point_Of_Sale
             /// them to use later
             if (SelectedProduct != null)
             {
-                SelectedProduct.BackColor = Color.FromArgb(37,37,37);
+                SelectedProduct.BackColor = Color.FromArgb(37, 37, 37);
             }
             Label Clicked = sender as Label;
             SelectedProduct = Clicked.Parent as Panel;
@@ -209,7 +208,7 @@ namespace Point_Of_Sale
         // cancel currently unsaved progress or delete unsaved sale from database
         private void Btn_Cancel_Click(object sender, EventArgs e)
         {
-            if(SaleDetails.Id != -1)
+            if (SaleDetails.Id != -1)
             {
                 Sales.Delete_Sale(SaleDetails.Id);
             }
@@ -292,7 +291,7 @@ namespace Point_Of_Sale
             Update_Buttons();
             Update_Total();
         }
-        
+
         // check sale is valid to save or payment
         private bool Is_Valid_Sale()
         {
@@ -331,14 +330,14 @@ namespace Point_Of_Sale
                 SaleDetails.Products.Add(Product);
             }
 
-            if(SaleDetails.Payment == null)
+            if (SaleDetails.Payment == null)
             {
                 SaleDetails.Payment = "Not Paid";
             }
             SaleDetails.Total = double.Parse(Txt_Total.Text, NumberStyles.Currency, Lanka);
-            
+
             //check if sale is new or existing sale
-            if(SaleDetails.Id == -1)
+            if (SaleDetails.Id == -1)
             {
                 SaleDetails.Id = Sales.Save_New_Sale(SaleDetails);
             }
@@ -489,7 +488,7 @@ namespace Point_Of_Sale
             //Btn_Payment.Focus();
             Search_Panel_Hide();
         }
-        
+
         // Insert Item to the Search Panel by using id, name, quantity and price as parameters
         private void Insert_Search_Item(int Number, string Name, int Quantity, double Price)
         {
@@ -582,7 +581,7 @@ namespace Point_Of_Sale
         {
             History_Panel_Hide();
         }
-        
+
         // change clicked status
         public void History_Label_Clicked(object sender, EventArgs e)
         {
@@ -602,11 +601,11 @@ namespace Point_Of_Sale
             Label Clicked = sender as Label;
             /// check if sale is not paid them load to the sale details
             /// otherwise generate printable recipt
-            if(Clicked.Parent.Controls[1].Text == "Not Paid")
+            if (Clicked.Parent.Controls[1].Text == "Not Paid")
             {
                 Clear_Sale();
                 SaleDetails = Sales.Load_Sale_Details(int.Parse(Clicked.Name.Split('_')[3]));
-                foreach(ProductStruct Item in SaleDetails.Products)
+                foreach (ProductStruct Item in SaleDetails.Products)
                 {
                     Insert_Sale_Item(Item.Id, Item.Name, Item.Unit, Item.Price);
                 }
@@ -652,12 +651,12 @@ namespace Point_Of_Sale
                 Preview.ShowDialog();
             }
         }
-        
+
         // load history data to the history panel by getting all the sales from database
         public void Fill_Sales_History_Panel()
         {
             List<SaleStruct> SalesList = Sales.Retrieve_Sales();
-            if(SalesList.Count > 0)
+            if (SalesList.Count > 0)
             {
                 foreach (SaleStruct Sale in SalesList)
                 {
@@ -742,7 +741,7 @@ namespace Point_Of_Sale
             Panel_Sales_History.Controls.SetChildIndex(ChildSale, 0);
         }
         // --end-- History Section --end--
-        
+
         // Update Buttons States
         private void Update_Buttons()
         {
@@ -791,7 +790,7 @@ namespace Point_Of_Sale
                 Btn_Card.BackColor = Color.FromArgb(51, 51, 51);
                 Lbl_Payment_Type_Display.Text = "Payment Type : Cash";
             }
-            else if(SaleDetails.Payment == "Card")
+            else if (SaleDetails.Payment == "Card")
             {
                 Btn_Card.BackColor = Color.FromArgb(0, 160, 0);
                 Btn_Cash.BackColor = Color.FromArgb(51, 51, 51);
@@ -804,7 +803,7 @@ namespace Point_Of_Sale
                 Lbl_Payment_Type_Display.Text = "Payment Type : None";
                 SaleDetails.Payment = null;
             }
-            if(SaleDetails.Customer != -1)
+            if (SaleDetails.Customer != -1)
             {
                 Class_Customer Customers = new Class_Customer();
                 Lbl_Customer_Name_Display.Text = $"Customer : {Customers.Get_Customer_Name(SaleDetails.Customer)}";
@@ -814,7 +813,7 @@ namespace Point_Of_Sale
                 Lbl_Customer_Name_Display.Text = "Customer : None";
             }
         }
-        
+
         // remove active state for all controllers
         private void Form_Register_MouseDown(object sender, MouseEventArgs e)
         {

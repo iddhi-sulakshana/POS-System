@@ -1,7 +1,7 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace Point_Of_Sale
 {
@@ -12,7 +12,7 @@ namespace Point_Of_Sale
             InitializeComponent();
         }
 
-        readonly Class_User User = new Class_User();
+        private readonly Class_User User = new Class_User();
 
         /// when user click on submit btn checks username and password to login if 
         /// username is admin then redirect to the admin page otherwise register page
@@ -52,7 +52,7 @@ namespace Point_Of_Sale
                 }
             }
             //show error message if username or password is empty
-            else MessageBox.Show("Please Enter UserName and Password", "Empty Fields!", MessageBoxButtons.OK , MessageBoxIcon.Warning);
+            else MessageBox.Show("Please Enter UserName and Password", "Empty Fields!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         // show/hide password

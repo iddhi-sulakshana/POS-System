@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Diagnostics;
-// used framework for edit and create pdf
+﻿// used framework for edit and create pdf
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 
 namespace Point_Of_Sale
 {
@@ -28,7 +28,7 @@ namespace Point_Of_Sale
                 Directory.CreateDirectory(Path.Combine(UserPath, "Sale"));
             }
             // check if file is already exist then delete
-            if(File.Exists(Path.Combine(UserPath, $"Sale\\Sale_{SaleDetails.Id}.pdf")))
+            if (File.Exists(Path.Combine(UserPath, $"Sale\\Sale_{SaleDetails.Id}.pdf")))
             {
                 File.Delete(Path.Combine(UserPath, $"Sale\\Sale_{SaleDetails.Id}.pdf"));
             }
@@ -77,10 +77,10 @@ namespace Point_Of_Sale
             float[] headers = { 50, 50 };
             Table.SetWidths(headers);
             Table.WidthPercentage = 100;
-            Table.AddCell(new PdfPCell(Get_Paragraph($"Sale : #{SaleDetails.Id}", Calibri, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_LEFT}).Border = Rectangle.NO_BORDER;
-            Table.AddCell(new PdfPCell(Get_Paragraph($"Date : {SaleDetails.Date.ToString("yyyy/MM/dd hh:mm:ss tt")}", Calibri, "right", -1, -1)) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
+            Table.AddCell(new PdfPCell(Get_Paragraph($"Sale : #{SaleDetails.Id}", Calibri, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_LEFT }).Border = Rectangle.NO_BORDER;
+            Table.AddCell(new PdfPCell(Get_Paragraph($"Date : {SaleDetails.Date:yyyy/MM/dd hh:mm:ss tt}", Calibri, "right", -1, -1)) { HorizontalAlignment = Element.ALIGN_RIGHT }).Border = Rectangle.NO_BORDER;
             Sale_Document.Add(Table);
-            
+
             //insert some blank space
             ParagraphTxt = Get_Paragraph(" ", Calibri, "center", -1, -1);
             Sale_Document.Add(ParagraphTxt);
@@ -150,17 +150,17 @@ namespace Point_Of_Sale
                     Paragraph.Alignment = Element.ALIGN_RIGHT;
                     break;
             }
-            if(SBefore != -1)
+            if (SBefore != -1)
             {
                 Paragraph.SpacingBefore = SBefore;
             }
-            if(SAfter != -1)
+            if (SAfter != -1)
             {
                 Paragraph.SpacingAfter = SAfter;
             }
             return Paragraph;
         }
-        
+
         // return table that consist of product details by using productstruct list as parameters
         private PdfPTable Get_Products(List<ProductStruct> Products)
         {
@@ -174,7 +174,7 @@ namespace Point_Of_Sale
             TableProduct.AddCell(new PdfPCell(Get_Paragraph("Price ", ArialB, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_RIGHT, VerticalAlignment = Element.ALIGN_MIDDLE, UseAscender = true, Padding = 8 });
             TableProduct.AddCell(new PdfPCell(Get_Paragraph("Amount ", ArialB, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_RIGHT, VerticalAlignment = Element.ALIGN_MIDDLE, UseAscender = true, Padding = 8 });
 
-            foreach(ProductStruct Product in Products)
+            foreach (ProductStruct Product in Products)
             {
                 TableProduct.AddCell(new PdfPCell(Get_Paragraph(Product.Name, Calibri, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_LEFT, VerticalAlignment = Element.ALIGN_MIDDLE, UseAscender = true, Padding = 4 });
                 TableProduct.AddCell(new PdfPCell(Get_Paragraph(Product.Unit.ToString(), Calibri, "left", -1, -1)) { HorizontalAlignment = Element.ALIGN_CENTER, VerticalAlignment = Element.ALIGN_MIDDLE, UseAscender = true, Padding = 4 });

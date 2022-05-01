@@ -1,11 +1,11 @@
-﻿using System;
+﻿// used framework for create and edit excel file
+using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
-// used framework for create and edit excel file
-using Microsoft.Office.Interop.Excel;
 
 namespace Point_Of_Sale
 {
@@ -13,7 +13,7 @@ namespace Point_Of_Sale
     {
         // path for the excel file (Users/MyDocument/PointOfSale/Reports)
         private string ExcelPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale\\Reports");
-        
+
         // generate report for Send sale list Report, Product report, Customer Report, User report and out of stock report
         public void Generate_Reports(List<SaleStruct> Sales)
         {
@@ -32,9 +32,9 @@ namespace Point_Of_Sale
                 /// save/update or delete file
                 if (IsFileLocked(ExcelPath))
                 {
-                    foreach (var process in Process.GetProcessesByName("excel")) 
+                    foreach (var process in Process.GetProcessesByName("excel"))
                     {
-                            process.Kill();
+                        process.Kill();
                     }
                     /// there is taking some time to kill the process so need to sleep for
                     /// few seconds otherwise delete command will quickly execute before closing
@@ -79,7 +79,7 @@ namespace Point_Of_Sale
             // open the saved excel file
             Process.Start(ExcelPath);
         }
-        
+
         // check if file is using another process
         private bool IsFileLocked(string filePath)
         {
@@ -97,7 +97,7 @@ namespace Point_Of_Sale
             }
             return lockStatus;
         }
-        
+
         // Generate sale report sheet data
         private Worksheet Get_Sale_Report_Sheet(Worksheet worksheet, List<SaleStruct> Sales)
         {
@@ -132,7 +132,7 @@ namespace Point_Of_Sale
             worksheet.Columns.VerticalAlignment = XlHAlign.xlHAlignCenter;
 
             // Insert sale items
-            if(Sales.Count > 0)
+            if (Sales.Count > 0)
             {
                 int i = 2;
                 foreach (SaleStruct Sale in Sales)
@@ -142,7 +142,7 @@ namespace Point_Of_Sale
                     worksheet.Cells[i, 3].Value = Sale.Date;
                     worksheet.Cells[i, 4].Value = Sale.Payment;
                     worksheet.Cells[i, 5].Value = Sale.Total;
-                    worksheet.Cells[i, 6].Value = Sale.Discount/100;
+                    worksheet.Cells[i, 6].Value = Sale.Discount / 100;
                     worksheet.Cells[i, 7].Formula = $"={worksheet.Cells[i, 5].Address}-({worksheet.Cells[i, 5].Address}*{worksheet.Cells[i, 6].Address})";
                     i++;
                 }
@@ -152,7 +152,7 @@ namespace Point_Of_Sale
                 Formatting.Cells.Font.Size = 14;
                 Formatting.Cells.Font.Name = "Arial Black";
                 Formatting.Cells.HorizontalAlignment = XlHAlign.xlHAlignRight;
-                worksheet.Cells[i, 7].Formula = $"=SUM({worksheet.Cells[2,7].Address}:{worksheet.Cells[i-1,7].Address})";
+                worksheet.Cells[i, 7].Formula = $"=SUM({worksheet.Cells[2, 7].Address}:{worksheet.Cells[i - 1, 7].Address})";
                 Formatting = worksheet.Cells[i, 7];
                 Formatting.Cells.Font.Bold = true;
                 Formatting.Cells.Font.Size = 14;
@@ -163,14 +163,14 @@ namespace Point_Of_Sale
             {
                 worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 7]].Merge();
                 worksheet.Cells[2, 1].Value = "No results were Found in this time range";
-                Formatting = worksheet.Cells[2,1];
+                Formatting = worksheet.Cells[2, 1];
                 Formatting.Rows.Font.Bold = true;
                 Formatting.Rows.Font.Size = 16;
                 Formatting.Rows.Interior.Color = Color.Red;
             }
             return worksheet;
         }
-        
+
         // Generate product report sheet data
         private Worksheet Get_Product_Report_Sheet(Worksheet worksheet)
         {
@@ -217,7 +217,7 @@ namespace Point_Of_Sale
                 ExcelChart.HasTitle = true;
                 ExcelChart.ChartTitle.Text = "Product Stock";
                 ExcelChart.ChartType = XlChartType.xlPie;
-                Formatting = worksheet.get_Range($"=$B$1:$B${i-1}, $D$1:$D${i-1}");
+                Formatting = worksheet.get_Range($"=$B$1:$B${i - 1}, $D$1:$D${i - 1}");
                 ExcelChart.SetSourceData(Formatting);
                 ExcelChart.ApplyDataLabels(XlDataLabelsType.xlDataLabelsShowValue);
             }
@@ -232,7 +232,7 @@ namespace Point_Of_Sale
             }
             return worksheet;
         }
-        
+
         // Generate out of stock report sheet data
         private Worksheet Get_OutOfStock_Report_Sheet(Worksheet worksheet)
         {
@@ -285,7 +285,7 @@ namespace Point_Of_Sale
             }
             return worksheet;
         }
-        
+
         // Generate customer report sheet data
         private Worksheet Get_Customer_Sheet(Worksheet worksheet)
         {
