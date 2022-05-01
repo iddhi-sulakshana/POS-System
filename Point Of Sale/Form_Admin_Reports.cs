@@ -59,21 +59,6 @@ namespace Point_Of_Sale
                 DateTime_Generate_Report_From.Value = DateTime_Generate_Report_To.Value;
             }
         }
-        
-        // generate report and open it
-        private void Btn_Generate_Report_Click(object sender, EventArgs e)
-        {
-            Btn_Generate_Report.Text = "Generating";
-            this.Cursor = Cursors.WaitCursor;
-            Btn_Generate_Report.Enabled = false;
-            //Generate report and show window to save it to the local machine
-            List<SaleStruct> TimedSales = Sales.Get_Timed_Sales(DateTime_Generate_Report_From.Value, DateTime_Generate_Report_To.Value);
-            Class_Generate_Reports Generate = new Class_Generate_Reports();
-            Generate.Generate_Reports(TimedSales);
-            Btn_Generate_Report.Enabled = true;
-            this.Cursor = Cursors.Default;
-            Btn_Generate_Report.Text = "Generate";
-        }
 
         // update 14 days report graph by usign getting sale count from the database
         private void Update_14Days_Report()
@@ -95,7 +80,6 @@ namespace Point_Of_Sale
         // update yearly report graph by usign getting sale count from the database
         private void Update_Yearly_Report()
         {
-            DateTime Date = DateTime.Now;
             for(int i = 0; i < 12; i++)
             {
                 Graph_Yearly_Report.Items[i] = Sales.Get_Monthly_Sale_Count(int.Parse(DateTime.Now.Year.ToString()), i+1);
@@ -108,6 +92,20 @@ namespace Point_Of_Sale
         {
             Lbl_Today_Amount_Value.Text = string.Format(Lanka, "{0:c}", Sales.Get_Today_Sale_Amount());
             Lbl_Today_Count_Value.Text = $"{Sales.Get_Today_Sale_Count().ToString("0,0")} Sales";
+        }
+
+        // generate report and open it
+        private void Btn_Generate_Report_Click(object sender, EventArgs e)
+        {
+            Btn_Generate_Report.Text = "Generating";
+            this.Cursor = Cursors.WaitCursor;
+            Btn_Generate_Report.Enabled = false;
+            //Generate report and show window to save it to the local machine
+            Class_Generate_Reports Generate = new Class_Generate_Reports();
+            Generate.Generate_Reports(Sales.Get_Timed_Sales(DateTime_Generate_Report_From.Value, DateTime_Generate_Report_To.Value));
+            Btn_Generate_Report.Enabled = true;
+            this.Cursor = Cursors.Default;
+            Btn_Generate_Report.Text = "Generate";
         }
     }
 }

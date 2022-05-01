@@ -394,6 +394,6 @@
         private System.Windows.Forms.Button Btn_Num2;
         private System.Windows.Forms.Button Btn_Num1;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        public System.Windows.Forms.TextBox Txt_Value;
+        private System.Windows.Forms.TextBox Txt_Value;
     }
 }

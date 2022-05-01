@@ -102,10 +102,10 @@ namespace Point_Of_Sale
         // Display Numberpad
         private double Get_NumberPad(double Value)
         {
-            var NumPad = new Form_NumberPad();
-            NumPad.Txt_Value.Text = Value.ToString();
+            Form_NumberPad NumPad = new Form_NumberPad();
+            NumPad.SetTxt_Value(Value);
             NumPad.ShowDialog();
-            return NumPad.Form_Return;
+            return NumPad.GetFormReturn();
         }
 
         // Change Payment Type to cash or card

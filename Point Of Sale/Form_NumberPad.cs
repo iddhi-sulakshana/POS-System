@@ -7,7 +7,9 @@ namespace Point_Of_Sale
     public partial class Form_NumberPad : KryptonForm
     {
         // return vatiable for user inserted value
-        public double Form_Return = 1;
+        private double Form_Return = 1;
+        public double GetFormReturn() { return Form_Return; }
+        public void SetTxt_Value(double value) { Txt_Value.Text = value.ToString(); }
 
         public Form_NumberPad()
         {
@@ -28,9 +30,9 @@ namespace Point_Of_Sale
         {
             try
             {
-                if (Txt_Value.Text == "" && int.Parse(Txt_Value.Text) < 0)
+                if (Txt_Value.Text == "")
                 {
-                    Form_Return = 1;
+                    Form_Return = 0;
                 }
                 else
                 {

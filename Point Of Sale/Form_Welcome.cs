@@ -37,7 +37,7 @@ namespace Point_Of_Sale
                         Lbl_Error.Visible = true;
                     }
                 }
-                else if (User.Is_Valid_Credintials(Txt_UName.Text, Txt_Password.Text))
+                else if (User.Is_Valid_Credentials(Txt_UName.Text, Txt_Password.Text))
                 {
                     Lbl_Error.Visible = false;
                     Txt_UName.Text = "";

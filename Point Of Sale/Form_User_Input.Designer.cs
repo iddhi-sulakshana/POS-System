@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Btn_Ok = new System.Windows.Forms.Button();
-            this.Btn_Cancel = new System.Windows.Forms.Button();
-            this.Txt_Answer3 = new System.Windows.Forms.TextBox();
             this.Lbl_Question1 = new System.Windows.Forms.Label();
-            this.Txt_Answer2 = new System.Windows.Forms.TextBox();
             this.Txt_Answer1 = new System.Windows.Forms.TextBox();
             this.Lbl_Question2 = new System.Windows.Forms.Label();
             this.Lbl_Question3 = new System.Windows.Forms.Label();
+            this.Txt_Answer2 = new System.Windows.Forms.TextBox();
+            this.Txt_Answer3 = new System.Windows.Forms.TextBox();
+            this.Btn_Ok = new System.Windows.Forms.Button();
+            this.Btn_Cancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,48 +68,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 378);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // Btn_Ok
-            // 
-            this.Btn_Ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
-            this.Btn_Ok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_Ok.FlatAppearance.BorderSize = 0;
-            this.Btn_Ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Ok.Font = new System.Drawing.Font("Arial Black", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Ok.Location = new System.Drawing.Point(3, 306);
-            this.Btn_Ok.Name = "Btn_Ok";
-            this.Btn_Ok.Size = new System.Drawing.Size(189, 69);
-            this.Btn_Ok.TabIndex = 0;
-            this.Btn_Ok.Text = "OK";
-            this.Btn_Ok.UseVisualStyleBackColor = false;
-            this.Btn_Ok.Click += new System.EventHandler(this.Btn_Ok_Click);
-            // 
-            // Btn_Cancel
-            // 
-            this.Btn_Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Btn_Cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.Btn_Cancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Btn_Cancel.FlatAppearance.BorderSize = 0;
-            this.Btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Cancel.Font = new System.Drawing.Font("Arial Black", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Cancel.Location = new System.Drawing.Point(198, 306);
-            this.Btn_Cancel.Name = "Btn_Cancel";
-            this.Btn_Cancel.Size = new System.Drawing.Size(189, 69);
-            this.Btn_Cancel.TabIndex = 2;
-            this.Btn_Cancel.Text = "Cancel";
-            this.Btn_Cancel.UseVisualStyleBackColor = false;
-            this.Btn_Cancel.Click += new System.EventHandler(this.Btn_Cancel_Click);
-            // 
-            // Txt_Answer3
-            // 
-            this.Txt_Answer3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.Txt_Answer3, 2);
-            this.Txt_Answer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Txt_Answer3.ForeColor = System.Drawing.Color.White;
-            this.Txt_Answer3.Location = new System.Drawing.Point(3, 238);
-            this.Txt_Answer3.Name = "Txt_Answer3";
-            this.Txt_Answer3.Size = new System.Drawing.Size(384, 36);
-            this.Txt_Answer3.TabIndex = 3;
-            // 
             // Lbl_Question1
             // 
             this.Lbl_Question1.AutoSize = true;
@@ -122,17 +80,6 @@
             this.Lbl_Question1.TabIndex = 4;
             this.Lbl_Question1.Text = "Question ?";
             this.Lbl_Question1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Txt_Answer2
-            // 
-            this.Txt_Answer2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.Txt_Answer2, 2);
-            this.Txt_Answer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Txt_Answer2.ForeColor = System.Drawing.Color.White;
-            this.Txt_Answer2.Location = new System.Drawing.Point(3, 144);
-            this.Txt_Answer2.Name = "Txt_Answer2";
-            this.Txt_Answer2.Size = new System.Drawing.Size(384, 36);
-            this.Txt_Answer2.TabIndex = 3;
             // 
             // Txt_Answer1
             // 
@@ -170,6 +117,59 @@
             this.Lbl_Question3.TabIndex = 4;
             this.Lbl_Question3.Text = "Question ?";
             this.Lbl_Question3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Txt_Answer2
+            // 
+            this.Txt_Answer2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.Txt_Answer2, 2);
+            this.Txt_Answer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Txt_Answer2.ForeColor = System.Drawing.Color.White;
+            this.Txt_Answer2.Location = new System.Drawing.Point(3, 144);
+            this.Txt_Answer2.Name = "Txt_Answer2";
+            this.Txt_Answer2.Size = new System.Drawing.Size(384, 36);
+            this.Txt_Answer2.TabIndex = 3;
+            // 
+            // Txt_Answer3
+            // 
+            this.Txt_Answer3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.Txt_Answer3, 2);
+            this.Txt_Answer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Txt_Answer3.ForeColor = System.Drawing.Color.White;
+            this.Txt_Answer3.Location = new System.Drawing.Point(3, 238);
+            this.Txt_Answer3.Name = "Txt_Answer3";
+            this.Txt_Answer3.Size = new System.Drawing.Size(384, 36);
+            this.Txt_Answer3.TabIndex = 3;
+            // 
+            // Btn_Ok
+            // 
+            this.Btn_Ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
+            this.Btn_Ok.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Ok.FlatAppearance.BorderSize = 0;
+            this.Btn_Ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Ok.Font = new System.Drawing.Font("Arial Black", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Ok.Location = new System.Drawing.Point(3, 306);
+            this.Btn_Ok.Name = "Btn_Ok";
+            this.Btn_Ok.Size = new System.Drawing.Size(189, 69);
+            this.Btn_Ok.TabIndex = 0;
+            this.Btn_Ok.Text = "OK";
+            this.Btn_Ok.UseVisualStyleBackColor = false;
+            this.Btn_Ok.Click += new System.EventHandler(this.Btn_Ok_Click);
+            // 
+            // Btn_Cancel
+            // 
+            this.Btn_Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_Cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Btn_Cancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Btn_Cancel.FlatAppearance.BorderSize = 0;
+            this.Btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Cancel.Font = new System.Drawing.Font("Arial Black", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Cancel.Location = new System.Drawing.Point(198, 306);
+            this.Btn_Cancel.Name = "Btn_Cancel";
+            this.Btn_Cancel.Size = new System.Drawing.Size(189, 69);
+            this.Btn_Cancel.TabIndex = 2;
+            this.Btn_Cancel.Text = "Cancel";
+            this.Btn_Cancel.UseVisualStyleBackColor = false;
+            this.Btn_Cancel.Click += new System.EventHandler(this.Btn_Cancel_Click);
             // 
             // Form_User_Input
             // 

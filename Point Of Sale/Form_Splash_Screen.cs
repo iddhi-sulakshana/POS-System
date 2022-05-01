@@ -101,6 +101,7 @@ namespace Point_Of_Sale
                 DialogResult result = MessageBox.Show("Error Cant Connect to the database Please Restart the Application", "Connection Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (result == DialogResult.Retry)
                 {
+                    System.Threading.Thread.Sleep(500);
                     Process.Start(Path.Combine(Directory.GetCurrentDirectory(), "Point Of Sale.exe"));
                 }
                 return false;
@@ -127,7 +128,7 @@ namespace Point_Of_Sale
                 Image Logo = Properties.Resources.company_logo;
                 Logo.Save(LogoPath);
             }
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(500);
             return true;
         }
     }

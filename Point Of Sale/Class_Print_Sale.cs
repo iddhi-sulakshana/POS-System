@@ -35,10 +35,12 @@ namespace Point_Of_Sale
             // create pdffile and use
             FileStream PdfFile = new FileStream(Path.Combine(UserPath, $"Sale\\Sale_{SaleDetails.Id}.pdf"), FileMode.Append, FileAccess.Write, FileShare.None);
             // create pdf file
-            Rectangle Rec = new Rectangle(PageSize.A4);
-            Rec.BackgroundColor = new CMYKColor(0, 5, 20, 0);
+            Rectangle Rec = new Rectangle(PageSize.A4)
+            {
+                BackgroundColor = new CMYKColor(0, 5, 20, 0)
+            };
             Document Sale_Document = new Document(Rec, 35, 35, 35, 35);
-            PdfWriter writer = PdfWriter.GetInstance(Sale_Document, PdfFile);
+            _ = PdfWriter.GetInstance(Sale_Document, PdfFile);
             Sale_Document.Open();
 
             // insert company logo
@@ -124,7 +126,7 @@ namespace Point_Of_Sale
             Sale_Document.Add(ParagraphTxt);
 
             // insert footer note
-            ParagraphTxt = Get_Paragraph($"Issued @ {DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss tt")}", Calibri, "left", -1, -1);
+            ParagraphTxt = Get_Paragraph($"Issued @ {DateTime.Now:yyyy/MM/dd hh:mm:ss tt}", Calibri, "left", -1, -1);
             Sale_Document.Add(ParagraphTxt);
 
             // close the pdf editor and open the file

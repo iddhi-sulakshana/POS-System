@@ -94,10 +94,5 @@ namespace Point_Of_Sale
         {
             this.Close();
         }
-
-        private void Txt_Customer_Name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

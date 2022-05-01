@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Point Of Sale", "Point Of Sale\Point Of Sale.csproj", "{22510F5C-A904-4A15-AEA9-4E4270AE723B}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Point Of Sale by Iddhi", "Point Of Sale by Iddhi\Point Of Sale by Iddhi.vdproj", "{E6742D72-4550-4AFD-B4CD-44A09F42D465}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Point Of Sale Setup", "Point Of Sale by Iddhi\Point Of Sale by Iddhi.vdproj", "{E6742D72-4550-4AFD-B4CD-44A09F42D465}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

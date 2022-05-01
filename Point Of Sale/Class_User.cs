@@ -35,7 +35,7 @@ namespace Point_Of_Sale
         }
         
         // validate userdetails by using username and password as parameter and return boolean value
-        public bool Is_Valid_Credintials(string UserName, string Password)
+        public bool Is_Valid_Credentials(string UserName, string Password)
         {
             SqlConnection Conn = GetConn();
             bool valid = false;

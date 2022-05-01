@@ -31,8 +31,8 @@ namespace Point_Of_Sale
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                return false;
+                MessageBox.Show("Error Connecting to database");
+                success = false;
             }
             finally
             {
