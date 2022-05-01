@@ -1,8 +1,8 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace Point_Of_Sale
 {
@@ -28,7 +28,7 @@ namespace Point_Of_Sale
         public int Selected_Customer = 1;
 
         // stores previous clicked customer panel
-        private Panel PreviousClicked = new Panel();
+        Panel PreviousClicked = new Panel();
 
         // insert customer to the customer main panel
         private void Insert_Customer(int Number, string Name)
@@ -80,7 +80,7 @@ namespace Point_Of_Sale
             ClickedPanel.BackColor = Color.FromArgb(57, 57, 57);
             PreviousClicked = ClickedPanel;
         }
-
+        
         // change customer to selected customer and close the form
         private void Cutomer_Label_DoubleClicked(object sender, EventArgs e)
         {
@@ -88,7 +88,7 @@ namespace Point_Of_Sale
             Selected_Customer = int.Parse(Clicked.Name.Split('_')[3]);
             this.Close();
         }
-
+        
         // close the form
         private void Lbl_Cancel_Click(object sender, EventArgs e)
         {

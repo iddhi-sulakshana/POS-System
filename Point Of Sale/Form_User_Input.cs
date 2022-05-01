@@ -16,7 +16,7 @@ namespace Point_Of_Sale
         // close the form
         private void Btn_Ok_Click(object sender, EventArgs e)
         {
-            if (Txt_Answer1.Text.Trim() == "" || Txt_Answer2.Text.Trim() == "" || (Txt_Answer3.Visible == true && Txt_Answer3.Text.Trim() == ""))
+            if(Txt_Answer1.Text.Trim() == "" || Txt_Answer2.Text.Trim() == "" || (Txt_Answer3.Visible == true && Txt_Answer3.Text.Trim() == ""))
             {
                 MessageBox.Show("All Fields are required");
                 return;

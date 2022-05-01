@@ -1,6 +1,6 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace Point_Of_Sale
 {
@@ -19,7 +19,7 @@ namespace Point_Of_Sale
         // close the form
         private void Btn_Escape_Click(object sender, EventArgs e)
         {
-
+            
             Form_Return = -1;
             this.Close();
         }
@@ -59,11 +59,11 @@ namespace Point_Of_Sale
                 e.Handled = true;
             }
         }
-
+        
         // clear one number from the value
         private void Btn_Back_Click(object sender, EventArgs e)
         {
-            if (Txt_Value.Text.Length > 0)
+            if(Txt_Value.Text.Length > 0)
             {
                 Txt_Value.Text = Txt_Value.Text.Remove(Txt_Value.Text.Length - 1);
             }

@@ -1,7 +1,7 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace Point_Of_Sale
 {
@@ -11,10 +11,10 @@ namespace Point_Of_Sale
         {
             InitializeComponent();
         }
-
+        
         // used for store previously clicked button in the menu
         private Button PreviousClicked = new Button();
-
+        
         /// clicked on the menu item cheange previous clicked button to default and clicked
         /// button to the clciked color and assign clicked to previously clicked and check
         /// what is clicked by using switch case and display relevent form as child form
@@ -47,7 +47,7 @@ namespace Point_Of_Sale
                     break;
             }
         }
-
+        
         // display child form inside main form by using form as parameter
         public void Open_Child_Form(Form Child_Form)
         {
@@ -61,7 +61,7 @@ namespace Point_Of_Sale
             Panel_Dashboard_Form_Loader.Controls.Add(Child_Form);
             Child_Form.Show();
         }
-
+        
         // load default child form when loading the main form and assign values for prevclicked
         private void Form_Admin_Load(object sender, EventArgs e)
         {

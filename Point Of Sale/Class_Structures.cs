@@ -10,7 +10,7 @@ namespace Point_Of_Sale
         public string Name;
         public string Password;
     }
-
+    
     // customer details are included id, name, address, phone
     public struct CustomerStruct
     {
@@ -19,7 +19,7 @@ namespace Point_Of_Sale
         public string Address;
         public string Phone;
     }
-
+    
     // product details are included id, name, price, unit
     public struct ProductStruct
     {
@@ -28,7 +28,7 @@ namespace Point_Of_Sale
         public double Price;
         public int Unit;
     }
-
+    
     /// sale details are included id, subtotal, discount. customer, payment,
     /// date and list of products structure
     public struct SaleStruct

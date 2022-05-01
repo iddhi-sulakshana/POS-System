@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Point_Of_Sale
 {
@@ -14,12 +14,13 @@ namespace Point_Of_Sale
         }
 
         // used for change currency for rupees
-        private readonly CultureInfo Lanka = new CultureInfo("si-LK");
-        private readonly Class_Products Product = new Class_Products();
+        readonly CultureInfo Lanka = new CultureInfo("si-LK");
+
+        readonly Class_Products Product = new Class_Products();
 
         // store previously clicked panel and clicked id
-        private Panel PreviouslyClicked = new Panel();
-        private int Selected = -1;
+        Panel PreviouslyClicked = new Panel();
+        int Selected = -1;
 
         // load products to the panel product loader
         private void Form_Admin_Products_Load(object sender, EventArgs e)

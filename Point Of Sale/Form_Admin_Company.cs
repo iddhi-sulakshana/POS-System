@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Point_Of_Sale
 {
@@ -11,10 +11,10 @@ namespace Point_Of_Sale
         {
             InitializeComponent();
         }
-
+        
         // path for the app data in the documents (User/MyDocument/PointOfSale)
         readonly private string UserPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale");
-
+        
         // Show password when user click on show password button
         private void Btn_Password_Show_MouseDown(object sender, MouseEventArgs e)
         {
@@ -70,8 +70,7 @@ namespace Point_Of_Sale
             try
             {
                 string[] Lines = File.ReadAllLines(TxtPath);
-                if (File.Exists(TxtPath))
-                {
+                if (File.Exists(TxtPath)){
                     Txt_Name.Text = Lines[0];
                     Txt_Address.Text = Lines[1];
                     Txt_Email.Text = Lines[2];

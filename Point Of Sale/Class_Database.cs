@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.IO;
+using System;
 using System.Windows.Forms;
 namespace Point_Of_Sale
 {
@@ -13,8 +14,8 @@ namespace Point_Of_Sale
         public SqlConnection GetConn()
         {
             return Conn;
-        }
-
+        }    
+        
         // check the connection status by connecting to database and update statment
         public bool TestConnection()
         {
@@ -28,7 +29,7 @@ namespace Point_Of_Sale
                 Command.ExecuteNonQuery();
                 success = true;
             }
-            catch
+            catch(Exception ex)
             {
                 MessageBox.Show("Error Connecting to database");
                 success = false;

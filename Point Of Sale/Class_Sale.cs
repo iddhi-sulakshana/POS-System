@@ -42,7 +42,7 @@ namespace Point_Of_Sale
             }
             return Sales_List;
         }
-
+        
         // get specified sale from database by using saleid as parameter and return sale
         public SaleStruct Load_Sale_Details(int SaleId)
         {
@@ -79,7 +79,7 @@ namespace Point_Of_Sale
                 DataReader.Close();
                 Sale.Products = Products;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -89,7 +89,7 @@ namespace Point_Of_Sale
             }
             return Sale;
         }
-
+        
         // save new sale to database by using sale structure as parameter and return inserted id
         public int Save_New_Sale(SaleStruct SaleDetails)
         {
@@ -120,7 +120,7 @@ namespace Point_Of_Sale
             }
             return SaleDetails.Id;
         }
-
+        
         // update existing sale by using sale structure as parameter
         public void Update_Existing_Sale(SaleStruct SaleDetails)
         {
@@ -164,7 +164,7 @@ namespace Point_Of_Sale
                     }
                 }
                 DataReader.Close();
-                if (sql != "")
+                if(sql != "")
                 {
                     Command = new SqlCommand(sql, Conn);
                     Command.ExecuteNonQuery();
@@ -179,7 +179,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // delete sale from the database by using id as parameter
         public void Delete_Sale(int SaleId)
         {
@@ -200,7 +200,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // update stock of the products that has saled by using sale details as parameter
         public void Update_Stock(SaleStruct SaleDetails)
         {
@@ -229,7 +229,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // get today sale count from the database and return count as integer
         public int Get_Today_Sale_Count()
         {
@@ -255,7 +255,7 @@ namespace Point_Of_Sale
             }
             return Count;
         }
-
+        
         // get today sale amount from the database and return amount as the double
         public double Get_Today_Sale_Amount()
         {
@@ -283,7 +283,7 @@ namespace Point_Of_Sale
             }
             return amount;
         }
-
+        
         // get specified date sale count by using date as parameter and return sale count as integer
         public int Get_Date_Sale_Count(DateTime Date)
         {
@@ -309,7 +309,7 @@ namespace Point_Of_Sale
             }
             return Count;
         }
-
+        
         // get specified month sale count by using year and month as parameter and return sale count as integer
         public int Get_Monthly_Sale_Count(int Year, int Month)
         {
@@ -335,7 +335,7 @@ namespace Point_Of_Sale
             }
             return Count;
         }
-
+        
         // get sale details in specified time period by using from date and to date and return sale list
         public List<SaleStruct> Get_Timed_Sales(DateTime From, DateTime To)
         {

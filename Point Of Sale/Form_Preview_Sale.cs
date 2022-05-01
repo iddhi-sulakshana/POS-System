@@ -1,9 +1,9 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using System;
+﻿using System;
 using System.Drawing;
-using System.Globalization;
-using System.IO;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
+using System.IO;
+using System.Globalization;
 
 namespace Point_Of_Sale
 {
@@ -13,14 +13,14 @@ namespace Point_Of_Sale
         protected string UserPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PointOfSale");
 
         // used for change currency for rupees
-        private readonly CultureInfo Lanka = new CultureInfo("si-LK");
+        readonly CultureInfo Lanka = new CultureInfo("si-LK");
 
         public Form_Preview_Sale()
         {
             InitializeComponent();
         }
 
-        private readonly Class_Sale Sales = new Class_Sale();
+        readonly Class_Sale Sales = new Class_Sale();
 
         // store sale details
         protected SaleStruct SaleDetails = new SaleStruct();
@@ -31,7 +31,7 @@ namespace Point_Of_Sale
         // load company and sale details if id is greater than 0
         private void Form_Preview_Sale_Load(object sender, EventArgs e)
         {
-            if (SalesId > 0)
+            if(SalesId > 0)
             {
                 Load_Company_Details();
                 Load_Sale_Details();
@@ -74,7 +74,7 @@ namespace Point_Of_Sale
             Lbl_Total_Value.Text = string.Format(Lanka, "{0:c}", SaleDetails.Total);
             Lbl_Discount_Value.Text = (SaleDetails.Discount / 100).ToString("P02");
             Lbl_Subtotal_Value.Text = string.Format(Lanka, "{0:c}", SaleDetails.Total - (SaleDetails.Total * SaleDetails.Discount / 100));
-            foreach (ProductStruct Product in SaleDetails.Products)
+            foreach(ProductStruct Product in SaleDetails.Products)
             {
                 Insert_Preview_Item(Product.Id, Product.Name, Product.Unit, Product.Price);
             }
@@ -144,7 +144,7 @@ namespace Point_Of_Sale
             Panel_Item_Loader.Controls.Add(Table);
             Panel_Item_Loader.Controls.SetChildIndex(Table, 0);
         }
-
+        
         // clear all the details from the form
         protected void Clear_Preview()
         {

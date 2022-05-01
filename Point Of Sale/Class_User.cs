@@ -18,7 +18,7 @@ namespace Point_Of_Sale
                 string sql = $"SELECT COUNT(*) FROM UserDetails WHERE UserName = '{UserName}'";
                 SqlCommand Command = new SqlCommand(sql, Conn);
                 Conn.Open();
-                if ((int)Command.ExecuteScalar() > 0)
+                if((int)Command.ExecuteScalar() > 0)
                 {
                     exist = true;
                 }
@@ -33,7 +33,7 @@ namespace Point_Of_Sale
             }
             return exist;
         }
-
+        
         // validate userdetails by using username and password as parameter and return boolean value
         public bool Is_Valid_Credentials(string UserName, string Password)
         {
@@ -45,7 +45,7 @@ namespace Point_Of_Sale
                 string sql = $"SELECT COUNT(*) FROM UserDetails WHERE UserName = '{UserName}' AND UserPwd = '{Password}'";
                 SqlCommand Command = new SqlCommand(sql, Conn);
                 Conn.Open();
-                if ((int)Command.ExecuteScalar() > 0)
+                if((int)Command.ExecuteScalar() > 0)
                 {
                     valid = true;
                 }
@@ -60,7 +60,7 @@ namespace Point_Of_Sale
             }
             return valid;
         }
-
+        
         // insert user into the database by using username and password as parameters
         public void Insert_User(string UserName, string Password)
         {
@@ -81,7 +81,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // update user in the database by usign id username and password as parameters
         public void Update_User(int Id, string UserName, string Password)
         {
@@ -102,7 +102,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // get all the users except admin from the database and return user list
         public List<UserStruct> Retrieve_Users()
         {
@@ -125,7 +125,7 @@ namespace Point_Of_Sale
                     Users_List.Add(Item);
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -135,7 +135,7 @@ namespace Point_Of_Sale
             }
             return Users_List;
         }
-
+        
         // delete user from the database by using id as parameter
         public void Delete_User(int Id)
         {
@@ -156,7 +156,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // update admin password in the database by using password as parameter
         public void Update_Admin(string Password)
         {
@@ -177,11 +177,11 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // get admin password from the database and return password as string
         public string Retrieve_Admin_Password()
         {
-            string Password = null;
+            string Password=null;
             SqlConnection Conn = GetConn();
             string sql = "SELECT UserPwd FROM UserDetails WHERE UserName = 'admin'";
             SqlCommand Command = new SqlCommand(sql, Conn);

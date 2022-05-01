@@ -1,10 +1,10 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
+using System.IO;
+using System.Diagnostics;
 
 namespace Point_Of_Sale
 {
@@ -24,7 +24,7 @@ namespace Point_Of_Sale
                 Flat_Progress_1.Value = Circle_Progress_1.Percentage;
                 Flat_Progress_2.Value = Circle_Progress_1.Percentage;
             }
-            if (Circle_Progress_1.Percentage == 60 && !Finished)
+            if(Circle_Progress_1.Percentage == 60 && !Finished)
             {
                 Skip = true;
             }
@@ -48,7 +48,7 @@ namespace Point_Of_Sale
                 Skip = false;
                 Timer1.Interval = 15;
             }
-            if (Circle_Progress_1.Percentage == 100 && Finished)
+            if(Circle_Progress_1.Percentage == 100 && Finished)
             {
                 Timer1.Stop();
                 this.Close();

@@ -12,7 +12,7 @@ namespace Point_Of_Sale
             InitializeComponent();
         }
 
-        private readonly Class_User User = new Class_User();
+        readonly Class_User User = new Class_User();
 
         // store previously clicked panel and clicked id
         private Panel PreviouslyClicked = new Panel();
@@ -94,7 +94,7 @@ namespace Point_Of_Sale
             Panel_User_Loader.Controls.Add(ChildUser);
             Panel_User_Loader.Controls.SetChildIndex(ChildUser, 0);
         }
-
+        
         // show password when user click on the show password button
         private void Show_Password(object sender, MouseEventArgs e)
         {
@@ -124,7 +124,7 @@ namespace Point_Of_Sale
                 Clicked.Parent.BackColor = Color.FromArgb(65, 70, 200);
                 PreviouslyClicked = Clicked.Parent as Panel;
             }
-            else if (sender.GetType().Name == "TextBox")
+            else if(sender.GetType().Name == "TextBox")
             {
                 TextBox Clicked = sender as TextBox;
                 Selected = int.Parse(Clicked.Name.Split('_')[3]);
@@ -148,18 +148,18 @@ namespace Point_Of_Sale
         // update buttons based on the clicked status
         private void Update_Buttons()
         {
-            if (Selected != -1)
+            if(Selected != -1)
             {
                 Btn_User_Edit.Enabled = true;
                 Btn_User_Delete.Enabled = true;
                 Btn_User_Edit.BackColor = Color.FromArgb(31, 31, 31);
-                Btn_User_Delete.BackColor = Color.FromArgb(215, 0, 0);
+                Btn_User_Delete.BackColor = Color.FromArgb(215, 0, 0); 
             }
             else
             {
                 Btn_User_Edit.Enabled = false;
                 Btn_User_Delete.Enabled = false;
-                Btn_User_Edit.BackColor = Color.FromArgb(51, 51, 51);
+                Btn_User_Edit.BackColor = Color.FromArgb(51,51,51);
                 Btn_User_Delete.BackColor = Color.FromArgb(255, 60, 60);
             }
         }
@@ -217,11 +217,11 @@ namespace Point_Of_Sale
             Selected = -1;
             Panel_User_Loader.Controls.Clear();
             List<UserStruct> Users = User.Retrieve_Users();
-            foreach (UserStruct User in Users)
+            foreach(UserStruct User in Users)
             {
                 Insert_User(User.Id, User.Name, User.Password);
             }
             Update_Buttons();
-        }
+        } 
     }
 }

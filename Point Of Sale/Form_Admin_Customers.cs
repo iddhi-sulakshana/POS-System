@@ -12,11 +12,11 @@ namespace Point_Of_Sale
             InitializeComponent();
         }
 
-        private readonly Class_Customer Customer = new Class_Customer();
+        readonly Class_Customer Customer = new Class_Customer();
 
         // store previously clicked panel and selected id
-        private Panel PreviouslyClicked = new Panel();
-        private int Selected = -1;
+        Panel PreviouslyClicked = new Panel();
+        int Selected = -1;
 
         // load customer details to the form
         private void Form_Admin_Customers_Load(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace Point_Of_Sale
         private void Customer_Label_Clicked(object sender, EventArgs e)
         {
             Label clicked = sender as Label;
-            if (clicked.Parent.Name.Split('_')[3] != "1")
+            if(clicked.Parent.Name.Split('_')[3] != "1")
             {
                 PreviouslyClicked.BackColor = Color.FromArgb(51, 51, 51);
                 Label Clicked = sender as Label;
@@ -128,7 +128,7 @@ namespace Point_Of_Sale
         private void Btn_Customer_Delete_Click(object sender, EventArgs e)
         {
             DialogResult UserAccept = MessageBox.Show("Are you sure you want to delete this", "Deleting Item", MessageBoxButtons.YesNo);
-            if (UserAccept == DialogResult.Yes)
+            if(UserAccept == DialogResult.Yes)
             {
                 //Delete Customer
                 Customer.Delete_Customer(Selected);
@@ -146,7 +146,7 @@ namespace Point_Of_Sale
             GetInput.ShowDialog();
             if (!GetInput.Cancel)
             {
-                if (GetInput.Get_Value3().Trim().Length == 10)
+                if(GetInput.Get_Value3().Trim().Length == 10)
                 {
                     Customer.Update_Customer(Selected, GetInput.Get_Value1(), GetInput.Get_Value2(), GetInput.Get_Value3());
                     Update_Customer_List();

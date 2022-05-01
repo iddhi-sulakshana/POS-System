@@ -11,7 +11,7 @@ namespace Point_Of_Sale
         public void Insert_Product(string Name, double Price, int Unit)
         {
             SqlConnection Conn = GetConn();
-            string sql = $"INSERT INTO Product(Name, Price, Unit) VALUES('{Name}', '{Price}', {Unit})";
+            string sql = $"INSERT INTO Product(Name, Price, Unit) VALUES('{Name}', '{Price}', {Unit})"; 
             SqlCommand Command = new SqlCommand(sql, Conn);
             try
             {
@@ -27,7 +27,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // update product in the database by using id, name, price and unit as parameters
         public void Update_Product(int Id, string Name, double Price, int Unit)
         {
@@ -48,7 +48,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         // delete product from the database by using id as parameter
         public void Delete_Product(int Id)
         {
@@ -69,7 +69,7 @@ namespace Point_Of_Sale
                 Conn.Close();
             }
         }
-
+        
         /// get all the products from the database and return them as product list and get
         /// nonzero as parameter to check is there need to include nonzero products or not
         public List<ProductStruct> Retrieve_Products(bool NonZero)
@@ -112,7 +112,7 @@ namespace Point_Of_Sale
             }
             return Product_List;
         }
-
+        
         // get one product from the database by using id as parameter and return product
         public ProductStruct Get_Product(int Id)
         {
@@ -140,7 +140,7 @@ namespace Point_Of_Sale
             }
             return Item;
         }
-
+        
         // get quantity of a product by using id as parameter and return quantity as integer
         public int Get_Quantity(int Id)
         {
@@ -166,7 +166,7 @@ namespace Point_Of_Sale
             }
             return quantity;
         }
-
+        
         // get all the empty products from the database and return them as product list
         public List<ProductStruct> Get_Empty_Products()
         {
