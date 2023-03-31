@@ -85,25 +85,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
-      <HintPath>..\packages\BouncyCastle.Crypto.dll</HintPath>
+      <HintPath>E:\Codings\C# Programs\Point Of Sale\packages\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Docking">
-      <HintPath>..\packages\ComponentFactory.Krypton.Docking.dll</HintPath>
+      <HintPath>E:\Codings\C# Programs\Point Of Sale\packages\ComponentFactory.Krypton.Docking.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Navigator">
-      <HintPath>..\packages\ComponentFactory.Krypton.Navigator.dll</HintPath>
+      <HintPath>E:\Codings\C# Programs\Point Of Sale\packages\ComponentFactory.Krypton.Navigator.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Ribbon">
-      <HintPath>..\packages\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+      <HintPath>E:\Codings\C# Programs\Point Of Sale\packages\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>..\packages\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>E:\Codings\C# Programs\Point Of Sale\packages\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Workspace">
-      <HintPath>..\packages\ComponentFactory.Krypton.Workspace.dll</HintPath>
+      <HintPath>E:\Codings\C# Programs\Point Of Sale\packages\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
-      <HintPath>..\packages\itextsharp.dll</HintPath>
+      <HintPath>E:\Codings\C# Programs\Point Of Sale\packages\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
@@ -122,7 +122,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="XanderUI">
-      <HintPath>..\packages\XanderUI.dll</HintPath>
+      <HintPath>E:\Codings\C# Programs\Point Of Sale\packages\XanderUI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
